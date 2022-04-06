@@ -14,13 +14,13 @@ class CarModel extends Model
     private $db;
     private $dbConnection;
     static private $_instance = NULL;
-    private $tblCar;
+    private $tblCars;
 
     //To use singleton pattern, this constructor is made private. To get an instance of the class, the getMovieModel method must be called.
     private function __construct() {
         $this->db = Database::getDatabase();
         $this->dbConnection = $this->db->getConnection();
-        $this->tblCar = $this->db->getCarTable();
+        $this->tblCars = $this->db->getCarTable();
 
         //Escapes special characters in a string for use in an SQL statement. This stops SQL inject in POST vars.
         foreach ($_POST as $key => $value) {
@@ -56,8 +56,8 @@ class CarModel extends Model
          * WHERE ...
          */
 
-        $sql = "SELECT * FROM " . $this->tblCar . "," . $this->tblMovieRating .
-            " WHERE " . $this->tblCar . ".rating=" . $this->tblMovieRating . ".rating_id";
+        $sql = "SELECT * FROM " . $this->tblCars . "," . $this->tblMovieRating .
+            " WHERE " . $this->tblCars . ".rating=" . $this->tblMovieRating . ".rating_id";
 
         //execute the query
         $query = $this->dbConnection->query($sql);
@@ -94,8 +94,8 @@ class CarModel extends Model
 
     public function view_car($id) {
         //the select sql statement
-        $sql = "SELECT * FROM " . $this->tblCar . "," . $this->tblMovieRating .
-            " WHERE " . $this->tblCar . ".id='$id'";
+        $sql = "SELECT * FROM " . $this->tblCars . "," . $this->tblMovieRating .
+            " WHERE " . $this->tblCars . ".id='$id'";
 
         //execute the query
         $query = $this->dbConnection->query($sql);
@@ -120,8 +120,8 @@ class CarModel extends Model
     public function search_car($terms) {
         $terms = explode(" ", $terms); //explode multiple terms into an array
         //select statement for AND serach
-        $sql = "SELECT * FROM " . $this->tblCar . "," . $this->tblMovieRating .
-            " WHERE " . $this->tblCar . ".rating=" . $this->tblMovieRating . ".rating_id AND (1";
+        $sql = "SELECT * FROM " . $this->tblCars . "," . $this->tblMovieRating .
+            " WHERE " . $this->tblCars . ".rating=" . $this->tblMovieRating . ".rating_id AND (1";
 
         foreach ($terms as $term) {
             $sql .= " AND title LIKE '%" . $term . "%'";
@@ -197,7 +197,7 @@ class CarModel extends Model
 //        $description = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING)));
 
         //query string for update
-//        $sql = "UPDATE " . $this->tblCar .
+//        $sql = "UPDATE " . $this->tblCars .
 //            " SET title='$title', rating='$rating', release_date='$release_date', director='$director', "
 //            . "image='$image', description='$description' WHERE id='$id'";
 
