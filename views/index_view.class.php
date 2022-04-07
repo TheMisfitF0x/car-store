@@ -1,7 +1,7 @@
 <?php
 /*
- * Author: Louie Zhu
- * Date: Mar 6, 2016
+ * Author: Logan Douglass
+ * Date: April 6, 2022
  * Name: index_view.class.php
  * Description: the parent class for all view classes. The two functions display page header and footer.
  */
