@@ -71,7 +71,7 @@ class CarModel extends Model
 
         //loop through all rows in the returned recordsets
         while ($obj = $query->fetch_object()) {
-            $car = new Car(stripslashes($obj->model), stripslashes($obj->brand), stripslashes($obj->manYear), stripslashes($obj->color), stripslashes($obj->mpg));
+            $car = new Car(stripslashes($obj->CarName), stripslashes($obj->Model), stripslashes($obj->Brand), stripslashes($obj->ManYear), stripslashes($obj->Color), stripslashes($obj->MPG));
             //set the Vin for the Car
             $car->setVin($obj->vin);
 
@@ -98,7 +98,7 @@ class CarModel extends Model
             $obj = $query->fetch_object();
 
             //create a car object
-            $car = new Car(stripslashes($obj->Model), stripslashes($obj->Brand), stripslashes($obj->ManYear), stripslashes($obj->color), stripslashes($obj->MPG));
+            $car = new Car(stripslashes($obj->CarName), stripslashes($obj->Model), stripslashes($obj->Brand), stripslashes($obj->ManYear), stripslashes($obj->Color), stripslashes($obj->MPG));
 
             //set the Vin for the car
             $car->setVin($obj->Vin);
