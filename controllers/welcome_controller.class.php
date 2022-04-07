@@ -9,7 +9,7 @@
 
 class WelcomeController {
     public function index() {
-        $view = new WelcomeIndex();
+        $view = new CarIndex();
         $view->display();
     }
 }
