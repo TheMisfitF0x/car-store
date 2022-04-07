@@ -10,6 +10,6 @@
 class WelcomeController {
     public function index() {
         $view = new CarIndex();
-        $view->display(5);
+        $view->display(0);
     }
 }

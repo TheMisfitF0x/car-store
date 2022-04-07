@@ -36,6 +36,16 @@ class CarIndex extends IndexView
                     $manYear = $car->getManYear();
                     $color = $car->getColor();
                     $mpg = $car->getMpg();
+
+                    echo "<tr>
+                            <td>$vin</td>
+                            <td>$carName</td>
+                            <td>$model</td>
+                            <td>$brand</td>
+                            <td>$manYear</td>
+                            <td>$color</td>
+                            <td>$mpg</td>
+                        </tr>";
                 }
             }
 
