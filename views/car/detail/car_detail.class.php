@@ -8,12 +8,13 @@
 
 class CarDetail extends IndexView
 {
-    public function display($car){
+    public function display($car)
+    {
         //display page header
         parent::displayHeader("Car Details");
 
         ?>
-        <h2>Car Details for <?=$car->getCarName?></h2>
+        <h2>Car Details for <?=$car->getCarName()?></h2>
         <table>
             <tr>
                 <th>Vin</th>
@@ -23,15 +24,15 @@ class CarDetail extends IndexView
                 <th>Color</th>
                 <th>MPG</th>
             </tr>
-            <?php
-                echo "<tr>
-                          <td>$car->getVin</td>
-                          <td>$car->getModel</td>
-                          <td>$car->getBrand</td>
-                          <td>$car->getManYear</td>
-                          <td>$car->getColor</td>
-                          <td>$car->getMpg</td>
+            <tr>
+                          <td><?=$car->getVin()?></td>
+                          <td><?=$car->getModel()?></td>
+                          <td><?=$car->getBrand()?></td>
+                          <td><?=$car->getManYear()?></td>
+                          <td><?=$car->getColor()?></td>
+                          <td><?=$car->getMpg()?></td>
                       </tr>
-        </table>";
+        </table>
+<?php
     }
 }?>
