@@ -8,7 +8,9 @@
 
 class CarIndex extends IndexView
 {
+
     public function display($cars){
+        $base_url = BASE_URL;
         //display page header
         parent::displayHeader("List All Cars");
 
@@ -16,11 +18,7 @@ class CarIndex extends IndexView
         <h2>List of Cars:</h2>
         <table>
             <tr>
-                <th>Vin</th>
                 <th>Car Name</th>
-                <th>Model</th>
-                <th>Brand</th>
-                <th>Manufacture Year</th>
                 <th>Color</th>
                 <th>MPG</th>
             </tr>
@@ -31,18 +29,11 @@ class CarIndex extends IndexView
                 foreach ($cars as $i => $car) {
                     $vin = $car->getVin();
                     $carName = $car->getCarName();
-                    $model = $car->getModel();
-                    $brand = $car->getBrand();
-                    $manYear = $car->getManYear();
                     $color = $car->getColor();
                     $mpg = $car->getMpg();
 
                     echo "<tr>
-                            <td>$vin</td>
-                            <td>$carName</td>
-                            <td>$model</td>
-                            <td>$brand</td>
-                            <td>$manYear</td>
+                            <td><a href = '$base_url/index.php/car/detail/$vin'>$carName</a></td>
                             <td>$color</td>
                             <td>$mpg</td>
                         </tr>";
