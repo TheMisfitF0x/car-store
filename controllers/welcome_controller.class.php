@@ -8,8 +8,8 @@
  */
 
 class WelcomeController {
-    public function index() {
+    public function index($cars) {
         $view = new CarIndex();
-        $view->display(0);
+        $view->display($cars);
     }
 }
