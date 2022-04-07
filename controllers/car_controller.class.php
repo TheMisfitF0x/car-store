@@ -19,6 +19,7 @@ class CarController
     public function index(){
         //retrieve all cars and store them in an array
         $cars = $this->car_model->list_car();
+        echo "test";
 
         if (!$cars) {
             //display an error
