@@ -16,7 +16,7 @@ class CarModel extends Model
     static private $_instance = NULL;
     private $tblCars;
 
-    //To use singleton pattern, this constructor is made private. To get an instance of the class, the getMovieModel method must be called.
+    //To use singleton pattern, this constructor is made private. To get an instance of the class, the getCarModel method must be called.
     private function __construct() {
         $this->db = Database::getDatabase();
         $this->dbConnection = $this->db->getConnection();
@@ -35,7 +35,7 @@ class CarModel extends Model
 
     }
 
-    //static method to ensure there is just one MovieModel instance
+    //static method to ensure there is just one CarModel instance
     public static function getCarModel() {
         if (self::$_instance == NULL) {
             self::$_instance = new CarModel();
@@ -44,20 +44,15 @@ class CarModel extends Model
     }
 
     /*
-     * the list_movie method retrieves all movies from the database and
-     * returns an array of Movie objects if successful or false if failed.
-     * Movies should also be filtered by ratings and/or sorted by titles or rating if they are available.
+     * the list_Car method retrieves all Cars from the database and
+     * returns an array of Car objects if successful or false if failed.
+     * Cars should also be filtered by ratings and/or sorted by titles or rating if they are available.
      */
 
     public function list_car() {
-        /* construct the sql SELECT statement in this format
-         * SELECT ...
-         * FROM ...
-         * WHERE ...
-         */
 
-        $sql = "SELECT * FROM " . $this->tblCars . "," . $this->tblMovieRating .
-            " WHERE " . $this->tblCars . ".rating=" . $this->tblMovieRating . ".rating_id";
+
+        $sql = "SELECT * FROM " . $this->tblCars ;
 
         //execute the query
         $query = $this->dbConnection->query($sql);
@@ -71,31 +66,30 @@ class CarModel extends Model
             return 0;
 
         //handle the result
-        //create an array to store all returned movies
+        //create an array to store all returned Cars
         $cars = array();
 
         //loop through all rows in the returned recordsets
         while ($obj = $query->fetch_object()) {
-            $car = new Car(stripslashes($obj->title), stripslashes($obj->rating), stripslashes($obj->release_date), stripslashes($obj->director), stripslashes($obj->image), stripslashes($obj->description));
+            $car = new Car(stripslashes($obj->model), stripslashes($obj->brand), stripslashes($obj->manYear), stripslashes($obj->color), stripslashes($obj->mpg));
+            //set the Vin for the Car
+            $car->setVin($obj->vin);
 
-            //set the id for the movie
-            $car->setId($obj->id);
-
-            //add the movie into the array
+            //add the car into the array
             $cars[] = $car;
         }
         return $cars;
     }
 
     /*
-     * the viewMovie method retrieves the details of the movie specified by its id
-     * and returns a movie object. Return false if failed.
+     * the viewCar method retrieves the details of the car specified by its id
+     * and returns a car object. Return false if failed.
      */
 
     public function view_car($id) {
         //the select sql statement
-        $sql = "SELECT * FROM " . $this->tblCars . "," . $this->tblMovieRating .
-            " WHERE " . $this->tblCars . ".id='$id'";
+        $sql = "SELECT * FROM " . $this->tblCars .
+            " WHERE " . $this->tblCars . ".Vin='$id'";
 
         //execute the query
         $query = $this->dbConnection->query($sql);
@@ -103,13 +97,13 @@ class CarModel extends Model
         if ($query && $query->num_rows > 0) {
             $obj = $query->fetch_object();
 
-            //create a movie object
-            $movie = new Movie(stripslashes($obj->title), stripslashes($obj->rating), stripslashes($obj->release_date), stripslashes($obj->director), stripslashes($obj->image), stripslashes($obj->description));
+            //create a car object
+            $car = new Car(stripslashes($obj->Model), stripslashes($obj->Brand), stripslashes($obj->ManYear), stripslashes($obj->color), stripslashes($obj->MPG));
 
-            //set the id for the movie
-            $movie->setId($obj->id);
+            //set the Vin for the car
+            $car->setVin($obj->Vin);
 
-            return $movie;
+            return $car;
         }
 
         return false;
@@ -118,62 +112,62 @@ class CarModel extends Model
 
     //search the database for cars that match words in terms. Return an array of cars if any are found; false otherwise.
     public function search_car($terms) {
-        $terms = explode(" ", $terms); //explode multiple terms into an array
-        //select statement for AND serach
-        $sql = "SELECT * FROM " . $this->tblCars . "," . $this->tblMovieRating .
-            " WHERE " . $this->tblCars . ".rating=" . $this->tblMovieRating . ".rating_id AND (1";
-
-        foreach ($terms as $term) {
-            $sql .= " AND title LIKE '%" . $term . "%'";
-        }
-
-        $sql .= ")";
-
-        //execute the query
-        $query = $this->dbConnection->query($sql);
-
-        // the search failed, return false.
-        if (!$query)
-            return false;
-
-        //search succeeded, but no movie was found.
-        if ($query->num_rows == 0)
-            return 0;
-
-        //search succeeded, and found at least 1 movie found.
-        //create an array to store all the returned movies
-        $movies = array();
-
-        //loop through all rows in the returned recordsets
-        while ($obj = $query->fetch_object()) {
-            $movie = new Movie($obj->title, $obj->rating, $obj->release_date, $obj->director, $obj->image, $obj->description);
-
-            //set the id for the movie
-            $movie->setId($obj->id);
-
-            //add the movie into the array
-            $movies[] = $movie;
-        }
-        return $movies;
-    }
-
-    //get all movie ratings
-    private function get_movie_ratings() {
-        $sql = "SELECT * FROM " . $this->tblMovieRating;
-
-        //execute the query
-        $query = $this->dbConnection->query($sql);
-
-        if (!$query) {
-            return false;
-        }
-
-        //loop through all rows
-        $ratings = array();
-        while ($obj = $query->fetch_object()) {
-            $ratings[$obj->rating] = $obj->rating_id;
-        }
-        return $ratings;
+//        $terms = explode(" ", $terms); //explode multiple terms into an array
+//        //select statement for AND serach
+//        $sql = "SELECT * FROM " . $this->tblCars .
+//            " WHERE " . $this->tblCars . ".rating=" . $this->tblCarRating . ".rating_id AND (1";
+//
+//        foreach ($terms as $term) {
+//            $sql .= " AND title LIKE '%" . $term . "%'";
+//        }
+//
+//        $sql .= ")";
+//
+//        //execute the query
+//        $query = $this->dbConnection->query($sql);
+//
+//        // the search failed, return false.
+//        if (!$query)
+//            return false;
+//
+//        //search succeeded, but no car was found.
+//        if ($query->num_rows == 0)
+//            return 0;
+//
+//        //search succeeded, and found at least 1 car found.
+//        //create an array to store all the returned cars
+//        $cars = array();
+//
+//        //loop through all rows in the returned recordsets
+//        while ($obj = $query->fetch_object()) {
+//            $car = new car($obj->title, $obj->rating, $obj->release_date, $obj->director, $obj->image, $obj->description);
+//
+//            //set the id for the car
+//            $car->setId($obj->id);
+//
+//            //add the car into the array
+//            $cars[] = $car;
+//        }
+//        return $cars;
+//    }
+//
+//    //get all car ratings
+//    private function get_car_ratings() {
+//        $sql = "SELECT * FROM " . $this->tblcarRating;
+//
+//        //execute the query
+//        $query = $this->dbConnection->query($sql);
+//
+//        if (!$query) {
+//            return false;
+//        }
+//
+//        //loop through all rows
+//        $ratings = array();
+//        while ($obj = $query->fetch_object()) {
+//            $ratings[$obj->rating] = $obj->rating_id;
+//        }
+//        return $ratings;
     }
 
     public function update_car($id) {
