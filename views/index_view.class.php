@@ -30,7 +30,6 @@ class IndexView {
     //this method displays the page footer
     public static function displayFooter() {
         ?>
-        <p>footer is here</p>
         </body>
         </html>
         <?php

@@ -1,6 +1,9 @@
 /*
     Document   : Styles
     Created on : 4/5/22
-    Author     : Isaac Lowe
+    Authors    : Isaac Lowe and Logan Douglass
     Description: Define styles
 */
+h1 {
+    color: red;
+}

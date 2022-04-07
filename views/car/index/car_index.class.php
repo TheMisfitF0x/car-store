@@ -16,11 +16,11 @@ class CarIndex extends IndexView
 
         ?>
         <h2>List of Cars:</h2>
-        <table>
+        <table style='border: 1px solid black;'>
             <tr>
-                <th>Car Name</th>
-                <th>Color</th>
-                <th>MPG</th>
+                <th style='border: 1px solid black;'>Car Name</th>
+                <th style='border: 1px solid black;'>Color</th>
+                <th style='border: 1px solid black;'>MPG</th>
             </tr>
             <?php
             if ($cars === 0) {
@@ -33,9 +33,9 @@ class CarIndex extends IndexView
                     $mpg = $car->getMpg();
 
                     echo "<tr>
-                            <td><a href = '$base_url/index.php/car/detail/$vin'>$carName</a></td>
-                            <td>$color</td>
-                            <td>$mpg</td>
+                            <td style='border: 1px solid black;'><a href = '$base_url/index.php/car/detail/$vin'>$carName</a></td>
+                            <td style='border: 1px solid black;'>$color</td>
+                            <td style='border: 1px solid black;'>$mpg</td>
                         </tr>";
                 }
             }

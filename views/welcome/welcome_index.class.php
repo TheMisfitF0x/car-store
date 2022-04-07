@@ -13,7 +13,7 @@ class WelcomeIndex extends IndexView {
         parent::displayHeader("Ran's Racing Roadsters");
         ?>
         <a href="<?= BASE_URL ?>/index.php/car/index/">
-            <p>EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE</p>
+            <p>Enter Site</p>
         </a>
         <?php
         //display page footer

@@ -2,8 +2,8 @@
 /*
  * Author: Logan Douglass
  * Date: April 6, 2022
- * Name: car_index.class.php
- * Description: This class defines a method called "display", which displays all cars.
+ * Name: car_detail.class.php
+ * Description: This class defines a method called "display", which displays car details.
  */
 
 class CarDetail extends IndexView
@@ -15,22 +15,22 @@ class CarDetail extends IndexView
 
         ?>
         <h2>Car Details for <?=$car->getCarName()?></h2>
-        <table>
+        <table style='border: 1px solid black;'>
             <tr>
-                <th>Vin</th>
-                <th>Model</th>
-                <th>Brand</th>
-                <th>Manufacture Year</th>
-                <th>Color</th>
-                <th>MPG</th>
+                <th style='border: 1px solid black;'>Vin</th>
+                <th style='border: 1px solid black;'>Model</th>
+                <th style='border: 1px solid black;'>Brand</th>
+                <th style='border: 1px solid black;'>Manufacture Year</th>
+                <th style='border: 1px solid black;'>Color</th>
+                <th style='border: 1px solid black;'>MPG</th>
             </tr>
             <tr>
-                          <td><?=$car->getVin()?></td>
-                          <td><?=$car->getModel()?></td>
-                          <td><?=$car->getBrand()?></td>
-                          <td><?=$car->getManYear()?></td>
-                          <td><?=$car->getColor()?></td>
-                          <td><?=$car->getMpg()?></td>
+                          <td style='border: 1px solid black;'><?=$car->getVin()?></td>
+                          <td style='border: 1px solid black;'><?=$car->getModel()?></td>
+                          <td style='border: 1px solid black;'><?=$car->getBrand()?></td>
+                          <td style='border: 1px solid black;'><?=$car->getManYear()?></td>
+                          <td style='border: 1px solid black;'><?=$car->getColor()?></td>
+                          <td style='border: 1px solid black;'><?=$car->getMpg()?></td>
                       </tr>
         </table>
 <?php
