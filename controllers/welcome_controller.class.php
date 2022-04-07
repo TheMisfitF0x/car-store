@@ -8,9 +8,9 @@
  */
 
 class WelcomeController {
+    //put your code here
     public function index() {
-        $car_Controller = new CarController();
-        //echo "test";
-        $car_Controller ->index();
+        $view = new WelcomeIndex();
+        $view->display();
     }
 }
