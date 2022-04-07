@@ -14,9 +14,8 @@ class Car
 
 
 
-    public function __construct($vin, $carName, $model, $brand, $manYear, $color, $mpg)
+    public function __construct($carName, $model, $brand, $manYear, $color, $mpg)
     {
-        $this->vin = $vin;
         $this->carName = $carName;
         $this->model = $model;
         $this->brand = $brand;
