@@ -6,7 +6,7 @@
  * Description: This class defines a method called "display", which displays all cars.
  */
 
-class CarIndex
+class CarIndex extends IndexView
 {
     public function display($cars){
         //display page header
@@ -16,10 +16,29 @@ class CarIndex
         <h2>List of Cars:</h2>
         <table>
             <tr>
-                <th>Test</th>
-                <th>Test</th>
+                <th>Vin</th>
+                <th>Car Name</th>
+                <th>Model</th>
+                <th>Brand</th>
+                <th>Manufacture Year</th>
+                <th>Color</th>
+                <th>MPG</th>
             </tr>
-        </table>
-    <?php
+            <?php
+            if ($cars === 0) {
+                echo "No car was found";
+            } else {
+                foreach ($cars as $i => $car) {
+                    $vin = $car->getVin();
+                    $carName = $car->getCarName();
+                    $model = $car->getModel();
+                    $brand = $car->getBrand();
+                    $manYear = $car->getManYear();
+                    $color = $car->getColor();
+                    $mpg = $car->getMpg();
+                }
+            }
+
+        echo "</table>";
     }
-}
+}?>
