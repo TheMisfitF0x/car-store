@@ -1,6 +1,11 @@
 /*
     Document   : Styles
     Created on : 4/5/22
-    Author     : Isaac Lowe
+    Author     : Evan Minor
     Description: Define styles
 */
+
+body { background-color: coral;color: black;  font-family: "Comic Sans MS"; font-size: 14px;
+}
+
+td { font-size: 12px;  }
