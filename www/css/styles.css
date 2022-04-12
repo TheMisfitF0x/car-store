@@ -1,11 +1,22 @@
 /*
     Document   : Styles
     Created on : 4/5/22
+
     Author     : Evan Minor
     Description: Define styles
 */
 
-body { background-color: coral;color: black;  font-family: "Comic Sans MS"; font-size: 14px;
+body { background-color: navy;color: white;  font-family: "Comic Sans MS"; font-size: 16px;
 }
 
 td { font-size: 12px;  }
+
+/*This would be the Line dividers*/
+hr { border-top: 5px solid #bbb;}
+
+h1 {text-align: center;}
+
+.footer {}
+
+.header {text-align: center;}
+
