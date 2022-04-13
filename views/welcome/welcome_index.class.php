@@ -18,8 +18,9 @@ class WelcomeIndex extends IndexView {
 
             <p style="text-align: center">Lets see what we're racin!</p>
         </a>
-        <p>Enter Website</p>
-
+        <div id="WelcomeText">
+            <p>Welcome to Ran's Racin Racer's</p>
+        </div>
 
         <?php
         //display page footer

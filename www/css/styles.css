@@ -19,7 +19,7 @@ body { background-color: coral;color: black;font-family:"Comic Sans MS"; font-si
 td { font-size: 12px;  }
 
 /*This would be the Line dividers*/
-.hr {
+.hr { /*This would be a class*/
     border: 3px solid black;
     border-radius: 5px;
     margin-top: 25px;
@@ -27,14 +27,22 @@ td { font-size: 12px;  }
 
 h1 {}
 
-.footer {}  /*this is a class*/
+#footer {
+    background-color: white;
+    border: black solid 2px;
+    border-radius:2px;
+    margin-right: 100px;
+    margin-left: 100px;
+    text-align: center;
+}
 
 #header {
     text-align: left;
     background-color: white;
     border: black solid 2px;
-    margin-left: 400px ;
-    margin-right: 400px;
+    border-radius:2px;
+    margin-left: 500px ;
+    margin-right: 500px;
     margin-top: 25px;
 }
 
@@ -44,7 +52,11 @@ h1 {}
     margin-right: 0px;
     position: relative;
     border: black 1px solid;
-    border-radius: 0px;
+    border-radius: 1px;
 }  /*this is a ID*/
+
+
+
+
 
 
