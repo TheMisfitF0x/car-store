@@ -19,6 +19,8 @@ class WelcomeIndex extends IndexView {
             <p style="text-align: center">Lets see what we're racin!</p>
         </a>
         <p>Enter Website</p>
+
+
         <?php
         //display page footer
         parent::displayFooter();

@@ -34,5 +34,7 @@ class CarDetail extends IndexView
                       </tr>
         </table>
 <?php
+  parent::displayFooter();
+
     }
 }?>

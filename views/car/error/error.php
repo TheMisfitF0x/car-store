@@ -3,5 +3,5 @@
  * Author: Isaac Lowe
  * Date: 4/5/2022
  * File: error.php
- * Description:
+ * Description: How did I get here???
  */
