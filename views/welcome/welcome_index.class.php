@@ -19,7 +19,12 @@ class WelcomeIndex extends IndexView {
             <p style="text-align: center">Lets see what we're racin!</p>
         </a>
         <div id="WelcomeText">
-            <p>Welcome to Ran's Racin Racer's</p>
+            <p style="font-size: 20px">Welcome to Ran's Racin Racer's</p>
+            <p>We are doing a project over stupid programming stuff </p>
+            <a href="<?= BASE_URL ?>/index.php/car/index/">
+
+                <p style="text-align: center">Lets see what we're racin!</p>
+            </a>
         </div>
 
         <?php
