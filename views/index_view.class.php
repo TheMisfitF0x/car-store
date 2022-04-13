@@ -27,11 +27,13 @@ class IndexView {
 
         <!--This is the header for every page-->
         <div id="header">
-            <h1>Ran's </h1>
-            <h1>    Racin</h1>
-            <h1>        Racer's</h1>
-            <hr style="border-top: 2px solid black;border-bottom: 2px solid black">
+            <h1>&nbsp&nbsp&nbsp Ran's</h1>
+            <h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Racin</h1>
+            <h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Racer's</h1>
+
         </div>
+        <hr class="hr">
+
 
         <!-- This is the search bar  -->
         <div id="searchbar">
@@ -41,15 +43,16 @@ class IndexView {
             </form>
         </div>
 
+
+
         <?php
     }//end of displayHeader function
 
     //this method displays the page footer
     public static function displayFooter() {
         ?>
-
+        <hr class="hr">
         <div class="footer">
-            <hr style="border-top: 2px solid black;border-bottom: 2px solid black">
             <p>&copy 2022 Ran's Racing Racers. All Rights Reserved</p>
         </div>
 
