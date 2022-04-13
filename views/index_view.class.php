@@ -26,10 +26,21 @@ class IndexView {
         <body>
 
         <!--This is the header for every page-->
-        <div class="header">
-            <h1>Ran's Roadsters</h1>
+        <div id="header">
+            <h1>Ran's </h1>
+            <h1>    Racin</h1>
+            <h1>        Racer's</h1>
             <hr style="border-top: 2px solid black;border-bottom: 2px solid black">
         </div>
+
+        <!-- This is the search bar  -->
+        <div id="searchbar">
+            <form method="get" action="<?=BASE_URL?>search_car.php">
+                <input name="query-terms" id="searchtextbox" placeholder="Search Car's by Name" autocomplete="off" onkeyup="handleKeyUp(event)">
+                <input type="submit" value="Go">
+            </form>
+        </div>
+
         <?php
     }//end of displayHeader function
 

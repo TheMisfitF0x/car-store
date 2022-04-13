@@ -48,6 +48,9 @@ class CarController
         $view = new CarDetail();
         $view->display($car);
     }
+    //Searches cars from the database
+
+
 
     public function error($message){
         //create an object of the Error class
