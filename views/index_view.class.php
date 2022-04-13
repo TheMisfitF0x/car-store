@@ -37,8 +37,8 @@ class IndexView {
 
         <!-- This is the search bar  -->
         <div id="searchbar">
-            <form method="get" action="<?=BASE_URL?>search_car.php">
-                <input name="query-terms" id="searchtextbox" placeholder="Search Car's by Name" autocomplete="off" onkeyup="handleKeyUp(event)">
+            <form method="get" action="<?=BASE_URL?>/index.php/car/search">
+                <input name="query-terms" id="searchtextbox" placeholder="Search Cars by Name" autocomplete="off" onkeyup="handleKeyUp(event)">
                 <input type="submit" value="Go">
             </form>
         </div>
