@@ -48,8 +48,30 @@ class CarController
         $view = new CarDetail();
         $view->display($car);
     }
-    //Searches cars from the database
 
+    //Searches cars from the database
+    public function search() {
+        //retrieve query terms from search form
+        $query_terms = trim($_GET['query-terms']);
+
+        //if search term is empty, list all movies
+        if ($query_terms == "") {
+            $this->index();
+        }
+
+        //search the database for matching movies
+        $cars = $this->car_model->search_car($query_terms);
+
+        if ($cars === false) {
+            //handle error
+            $message = "An error has occurred.";
+            $this->error($message);
+            return;
+        }
+        //display matched movies
+        $search = new CarSearch();
+        $search->display($query_terms, $cars);
+    }
 
 
     public function error($message){
