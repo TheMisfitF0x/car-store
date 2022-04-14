@@ -73,7 +73,34 @@ class CarController
         $search->display($query_terms, $cars);
     }
 
+    public function add(){
+        //Sends the user to the "add car" form
+        $view = new CarAdd();
+        $view->display();
+    }
+
+    public function submit(){
+        //Submits the new car from the "add car" form into the database
+        //this should snag the values from POST
+        $submit = $this->car_model->submit_car();
+
+        if (!$submit) {
+            //handle errors
+            $message = "There was a problem submitting the new car=";
+            $this->error($message);
+            return;
+        }
+
+        //displays confirmation page
+        $view = new CarSubmit();
+        $view->display();
+    }
+
+
+
     //display a movie in a form for editing
+    //IGNORE FOR NOW
+    /**
     public function edit($id) {
         //retrieve the specific movie
         $car = $this->car_model->view_car($id);
@@ -106,7 +133,7 @@ class CarController
 
         $view = new CarDetail();
         $view->display($car, $confirm);
-    }
+    }**/
 
     public function error($message){
         //create an object of the Error class

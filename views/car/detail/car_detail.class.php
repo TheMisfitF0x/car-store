@@ -1,10 +1,10 @@
 <?php
-/*
+/**
  * Author: Logan Douglass
  * Date: April 6, 2022
  * Name: car_detail.class.php
  * Description: This class defines a method called "display", which displays car details.
- */
+ **/
 
 class CarDetail extends IndexView
 {

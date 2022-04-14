@@ -16,6 +16,7 @@ class CarIndex extends IndexView
 
         ?>
         <h2>List of Cars:</h2>
+        <a href="<?=$base_url?>/index.php/car/add"><button>Add Car</button></a>
         <div id="CarTable">
         <table style='border: 1px solid black;'>
             <tr>

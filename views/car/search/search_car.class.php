@@ -11,8 +11,7 @@ class SearchCar extends IndexView
     public function display($terms, $cars){
     $base_url = BASE_URL;
     //display page header
-    parent::displayHeader("List All Cars");
-    echo "test";
+    parent::displayHeader("Search Results");
     ?>
     <h2>List of Cars Containing <?=$terms?>:</h2>
     <table style='border: 1px solid black;'>

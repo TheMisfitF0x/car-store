@@ -84,6 +84,24 @@ h1 {}
 
 }
 
+#AddCar{
+    width:300px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.AddCarInput{
+    width:300px;
+}
+
+#AddCarSubmit{
+    width: 150px;
+}
+
+
+
+
 
 
 #CarTable{
