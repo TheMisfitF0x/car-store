@@ -118,7 +118,7 @@ class CarModel
             " WHERE (1";
 
         foreach ($terms as $term) {
-            $sql .= " AND title LIKE '%" . $term . "%'";
+            $sql .= " AND CarName LIKE '%" . $term . "%'";
         }
 
         $sql .= ")";

@@ -64,7 +64,7 @@ class CarController
 
         if ($cars === false) {
             //handle error
-            $message = "An error has occurred.";
+            $message = "There ARE NO CARS!.";
             $this->error($message);
             return;
         }
