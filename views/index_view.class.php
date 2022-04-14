@@ -27,7 +27,7 @@ class IndexView {
 
         <!--This is the header for every page-->
         <div id="header">
-            <img style="float: right;"  src="www/img/ran.png" alt="ran's picture">
+            <img style="float: right;"  src=<?=BASE_URL?>"/www/img/ran.png" alt="ran's picture">
             <h1>&nbsp&nbsp&nbsp Ran's</h1>
             <h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Racin</h1>
             <h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Racer's</h1>
@@ -35,14 +35,24 @@ class IndexView {
         </div>
         <hr class="hr">
 
-
-        <!-- This is the search bar  -->
-        <div id="searchbar">
-            <form method="get" action="<?=BASE_URL?>/index.php/car/search">
-                <input name="query-terms" id="searchtextbox" placeholder="Search Cars by Name" autocomplete="off" onkeyup="handleKeyUp(event)">
-                <input type="submit" value="Go">
-            </form>
+        <!--This is the Navigation Tab -->
+        <div id="NavBar">
+            <table>
+                <th><a href="<?= BASE_URL ?>/index.php/car/index/">Home</a></th>
+                <th>List</th>
+                <th>Login</th>
+                <th>
+                    <div id="searchbar">
+                        <form method="get" action="<?=BASE_URL?>/index.php/car/search">
+                            <input name="query-terms" id="searchtextbox" placeholder="Search Cars by Name" autocomplete="off" onkeyup="handleKeyUp(event)">
+                            <input type="submit" value="Go">
+                        </form>
+                    </div>
+                </th>
+            </table>
         </div>
+
+
 
 
 

@@ -52,10 +52,25 @@ h1 {}
     float: right;
     margin-top: 10px;
     margin-right: 0px;
-    position: relative;
+
     border: black 1px solid;
     border-radius: 1px;
     margin-bottom: 10px;
+}
+
+#NavBar{
+    text-align: center;
+    background-color: white;
+    border: black 2px solid;
+    border-radius: 5px;
+    margin-left: 50%;
+    width: 50%;
+
+
+}
+
+#NavBar:hover{
+    background-color: #ffdaaa;
 }
 
 /*This is the style for the welcome text*/
