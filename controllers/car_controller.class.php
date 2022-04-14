@@ -69,7 +69,7 @@ class CarController
             return;
         }
         //display matched movies
-        $search = new CarSearch();
+        $search = new SearchCar();
         $search->display($query_terms, $cars);
     }
 
