@@ -25,6 +25,11 @@ class Car
         $this->mpg = $mpg;
     }
 
+    public function getVin()
+    {
+        return $this->vin;
+    }
+
     public function getCarId()
     {
         return $this->carId;
