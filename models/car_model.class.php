@@ -181,13 +181,13 @@ class CarModel
         //return $this->dbConnection->query($sql);
     }
 
-    public function add_car($id) {
+    public function submit_car() {
         //if the script did not receive post data, display an error message and then terminate the script immediately
         if (!filter_has_var(INPUT_POST, 'vin') ||
-            !filter_has_var(INPUT_POST, 'name') ||
+            !filter_has_var(INPUT_POST, 'car_name') ||
             !filter_has_var(INPUT_POST, 'model') ||
             !filter_has_var(INPUT_POST, 'brand') ||
-            !filter_has_var(INPUT_POST, 'manYear') ||
+            !filter_has_var(INPUT_POST, 'man_year') ||
             !filter_has_var(INPUT_POST, 'mpg') ||
             !filter_has_var(INPUT_POST, 'color')) {
 
@@ -196,10 +196,10 @@ class CarModel
 
         //retrieve data for the new car; data is sanitized and escaped for security's sake.
         $vin = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'vin', FILTER_SANITIZE_STRING)));
-        $name = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)));
+        $name = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'car_name', FILTER_SANITIZE_STRING)));
         $model = $this->dbConnection->real_escape_string(filter_input(INPUT_POST, 'model', FILTER_SANITIZE_STRING));
         $brand = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'brand', FILTER_SANITIZE_STRING)));
-        $manYear = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'manYear', FILTER_SANITIZE_NUMBER_INT)));
+        $manYear = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'man_year', FILTER_SANITIZE_NUMBER_INT)));
         $mpg = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'mpg', FILTER_SANITIZE_NUMBER_INT)));
         $color = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'color', FILTER_SANITIZE_STRING)));
 
