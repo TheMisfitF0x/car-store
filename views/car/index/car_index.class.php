@@ -27,13 +27,13 @@ class CarIndex extends IndexView
                 echo "No car was found";
             } else {
                 foreach ($cars as $i => $car) {
-                    $vin = $car->getVin();
+                    $id = $car->getCarId();
                     $carName = $car->getCarName();
                     $color = $car->getColor();
                     $mpg = $car->getMpg();
 
                     echo "<tr>
-                            <td style='border: 1px solid black;'><a href = '$base_url/index.php/car/detail/$vin'>$carName</a></td>
+                            <td style='border: 1px solid black;'><a href = '$base_url/index.php/car/detail/$id'>$carName</a></td>
                             <td style='border: 1px solid black;'>$color</td>
                             <td style='border: 1px solid black;'>$mpg</td>
                         </tr>";

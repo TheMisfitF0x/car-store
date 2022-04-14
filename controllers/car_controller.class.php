@@ -33,13 +33,13 @@ class CarController
         $view->display($cars);
     }
 
-    public function detail($vin){
-        //retrieve the specific movie
-        $car = $this->car_model->view_car($vin);
+    public function detail($id){
+        //retrieve the specific car
+        $car = $this->car_model->view_car($id);
 
         if (!$car) {
             //display an error
-            $message = "There was a problem displaying the vin='" . $vin . "'.";
+            $message = "There was a problem displaying the id='" . $id . "'.";
             $this->error($message);
             return;
         }
@@ -73,6 +73,40 @@ class CarController
         $search->display($query_terms, $cars);
     }
 
+    //display a movie in a form for editing
+    public function edit($id) {
+        //retrieve the specific movie
+        $car = $this->car_model->view_car($id);
+
+        if (!$car) {
+            //display an error
+            $message = "There was a problem displaying the car id='" . $id . "'.";
+            $this->error($message);
+            return;
+        }
+
+        $view = new CarEdit();
+        $view->display($car);
+    }
+
+    //update a movie in the database
+    public function update($id) {
+        //update the movie
+        $update = $this->car_model->update_car($id);
+        if (!$update) {
+            //handle errors
+            $message = "There was a problem updating the car id='" . $id . "'.";
+            $this->error($message);
+            return;
+        }
+
+        //display the updateed movie details
+        $confirm = "The car was successfully updated.";
+        $car = $this->car_model->view_car($id);
+
+        $view = new CarDetail();
+        $view->display($car, $confirm);
+    }
 
     public function error($message){
         //create an object of the Error class
