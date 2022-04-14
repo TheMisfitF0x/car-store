@@ -205,7 +205,7 @@ class CarModel
 
 
         //query string for add
-        $sql = "INSERT INTO " . $this->tblCars . " VALUES (NULL, '$vin', '$name', '$model', '$brand', '$manYear','$color', '$mpg')";
+        $sql = "INSERT INTO " . $this->tblCars . " VALUES (NULL, '$vin', '$name', '$model', '$brand', '$manYear','$color', '$mpg', NULL)";
 
         //execute the query
         return $this->dbConnection->query($sql);
