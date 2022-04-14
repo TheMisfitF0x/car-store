@@ -6,7 +6,7 @@
  * File: car_model.class.php
  * Description:
  */
-class CarModel extends Model
+class CarModel
 {
 
 
@@ -71,7 +71,7 @@ class CarModel extends Model
 
         //loop through all rows in the returned recordsets
         while ($obj = $query->fetch_object()) {
-            $car = new Car(stringslashes($obj->Vin), stripslashes($obj->CarName), stripslashes($obj->Model), stripslashes($obj->Brand), stripslashes($obj->ManYear), stripslashes($obj->Color), stripslashes($obj->MPG));
+            $car = new Car(stripslashes($obj->Vin), stripslashes($obj->CarName), stripslashes($obj->Model), stripslashes($obj->Brand), stripslashes($obj->ManYear), stripslashes($obj->Color), stripslashes($obj->MPG));
             //set the id for the Car
             $car->setCarId($obj->CarID);
 
@@ -98,7 +98,7 @@ class CarModel extends Model
             $obj = $query->fetch_object();
 
             //create a car object
-            $car = new Car(stringslashes($obj->Vin), stripslashes($obj->CarName), stripslashes($obj->Model), stripslashes($obj->Brand), stripslashes($obj->ManYear), stripslashes($obj->Color), stripslashes($obj->MPG));
+            $car = new Car(stripslashes($obj->Vin), stripslashes($obj->CarName), stripslashes($obj->Model), stripslashes($obj->Brand), stripslashes($obj->ManYear), stripslashes($obj->Color), stripslashes($obj->MPG));
 
             //set the id for the Car
             $car->setCarId($obj->CarID);
@@ -141,7 +141,7 @@ class CarModel extends Model
         //loop through all rows in the returned recordsets
         while ($obj = $query->fetch_object()) {
             //create a car object
-            $car = new Car(stringslashes($obj->Vin), stripslashes($obj->CarName), stripslashes($obj->Model), stripslashes($obj->Brand), stripslashes($obj->ManYear), stripslashes($obj->Color), stripslashes($obj->MPG));
+            $car = new Car(stripslashes($obj->Vin), stripslashes($obj->CarName), stripslashes($obj->Model), stripslashes($obj->Brand), stripslashes($obj->ManYear), stripslashes($obj->Color), stripslashes($obj->MPG));
 
             //set the id for the Car
             $car->setCarId($obj->CarID);
