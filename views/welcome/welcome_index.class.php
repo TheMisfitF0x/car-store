@@ -14,16 +14,14 @@ class WelcomeIndex extends IndexView {
         ?>
 
 
-        <a href="<?= BASE_URL ?>/index.php/car/index/">
 
-            <p style="text-align: center">Lets see what we're racin!</p>
-        </a>
         <div id="WelcomeText">
-            <p style="font-size: 20px">Welcome to Ran's Racin Racer's</p>
-            <p>We are doing a project over stupid programming stuff </p>
+            <!-- the title of welcome text-->
+            <p style="font-size: 20px">Welcome to <strong>Ran's Racin Racer's</strong></p>
+            <!-- Actual paragraph -->
+            <p>Welcome to <strong>Ran's</strong> store!  Besides being a full time Professor at IUPUI, <strong>Ran</strong> has been one of the leading Car's Sales Man in Indianapolis for the last <strong>Twenty Years</strong></p>
             <a href="<?= BASE_URL ?>/index.php/car/index/">
-
-                <p style="text-align: center">Lets see what we're racin!</p>
+                <div> Enter<p style="text-align: center">Lets see what we're racin!</p>
             </a>
         </div>
 
