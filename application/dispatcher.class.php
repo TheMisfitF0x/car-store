@@ -42,7 +42,7 @@ class Dispatcher {
         //create controller instance
         if (!class_exists($controllerName)) {
             $message = "Controller '$controllerName' does not exist.";
-            include 'error.php';
+            include 'car_error.php';
             exit();
         }
         $controller = new $controllerName();

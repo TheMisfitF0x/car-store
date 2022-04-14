@@ -1,10 +1,10 @@
 <?php
-/*
+/**
  * Author: Logan Douglass
  * Date: April 6, 2022
  * Name: car_index.class.php
  * Description: This class defines a method called "display", which displays all cars.
- */
+ **/
 
 class CarIndex extends IndexView
 {
@@ -28,13 +28,13 @@ class CarIndex extends IndexView
                 echo "No car was found";
             } else {
                 foreach ($cars as $i => $car) {
-                    $vin = $car->getVin();
+                    $id = $car->getCarId();
                     $carName = $car->getCarName();
                     $color = $car->getColor();
                     $mpg = $car->getMpg();
 
                     echo "<tr>
-                            <td style='border: 1px solid black;'><a href = '$base_url/index.php/car/detail/$vin'>$carName</a></td>
+                            <td style='border: 1px solid black;'><a href = '$base_url/index.php/car/detail/$id'>$carName</a></td>
                             <td style='border: 1px solid black;'>$color</td>
                             <td style='border: 1px solid black;'>$mpg</td>
                         </tr>

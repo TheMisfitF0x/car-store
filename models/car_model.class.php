@@ -6,7 +6,7 @@
  * File: car_model.class.php
  * Description:
  */
-class CarModel extends Model
+class CarModel
 {
 
 
@@ -71,9 +71,9 @@ class CarModel extends Model
 
         //loop through all rows in the returned recordsets
         while ($obj = $query->fetch_object()) {
-            $car = new Car(stripslashes($obj->CarName), stripslashes($obj->Model), stripslashes($obj->Brand), stripslashes($obj->ManYear), stripslashes($obj->Color), stripslashes($obj->MPG));
-            //set the Vin for the Car
-            $car->setVin($obj->Vin);
+            $car = new Car(stripslashes($obj->Vin), stripslashes($obj->CarName), stripslashes($obj->Model), stripslashes($obj->Brand), stripslashes($obj->ManYear), stripslashes($obj->Color), stripslashes($obj->MPG));
+            //set the id for the Car
+            $car->setCarId($obj->CarID);
 
             //add the car into the array
             $cars[] = $car;
@@ -89,7 +89,7 @@ class CarModel extends Model
     public function view_car($id) {
         //the select sql statement
         $sql = "SELECT * FROM " . $this->tblCars .
-            " WHERE " . $this->tblCars . ".Vin='$id'";
+            " WHERE " . $this->tblCars . ".CarID='$id'";
 
         //execute the query
         $query = $this->dbConnection->query($sql);
@@ -98,10 +98,10 @@ class CarModel extends Model
             $obj = $query->fetch_object();
 
             //create a car object
-            $car = new Car(stripslashes($obj->CarName), stripslashes($obj->Model), stripslashes($obj->Brand), stripslashes($obj->ManYear), stripslashes($obj->Color), stripslashes($obj->MPG));
+            $car = new Car(stripslashes($obj->Vin), stripslashes($obj->CarName), stripslashes($obj->Model), stripslashes($obj->Brand), stripslashes($obj->ManYear), stripslashes($obj->Color), stripslashes($obj->MPG));
 
-            //set the Vin for the car
-            $car->setVin($obj->Vin);
+            //set the id for the Car
+            $car->setCarId($obj->CarID);
 
             return $car;
         }
@@ -112,62 +112,44 @@ class CarModel extends Model
 
     //search the database for cars that match words in terms. Return an array of cars if any are found; false otherwise.
     public function search_car($terms) {
-//        $terms = explode(" ", $terms); //explode multiple terms into an array
-//        //select statement for AND serach
-//        $sql = "SELECT * FROM " . $this->tblCars .
-//            " WHERE " . $this->tblCars . ".rating=" . $this->tblCarRating . ".rating_id AND (1";
-//
-//        foreach ($terms as $term) {
-//            $sql .= " AND title LIKE '%" . $term . "%'";
-//        }
-//
-//        $sql .= ")";
-//
-//        //execute the query
-//        $query = $this->dbConnection->query($sql);
-//
-//        // the search failed, return false.
-//        if (!$query)
-//            return false;
-//
-//        //search succeeded, but no car was found.
-//        if ($query->num_rows == 0)
-//            return 0;
-//
-//        //search succeeded, and found at least 1 car found.
-//        //create an array to store all the returned cars
-//        $cars = array();
-//
-//        //loop through all rows in the returned recordsets
-//        while ($obj = $query->fetch_object()) {
-//            $car = new car($obj->title, $obj->rating, $obj->release_date, $obj->director, $obj->image, $obj->description);
-//
-//            //set the id for the car
-//            $car->setId($obj->id);
-//
-//            //add the car into the array
-//            $cars[] = $car;
-//        }
-//        return $cars;
-//    }
-//
-//    //get all car ratings
-//    private function get_car_ratings() {
-//        $sql = "SELECT * FROM " . $this->tblcarRating;
-//
-//        //execute the query
-//        $query = $this->dbConnection->query($sql);
-//
-//        if (!$query) {
-//            return false;
-//        }
-//
-//        //loop through all rows
-//        $ratings = array();
-//        while ($obj = $query->fetch_object()) {
-//            $ratings[$obj->rating] = $obj->rating_id;
-//        }
-//        return $ratings;
+        $terms = explode(" ", $terms); //explode multiple terms into an array
+        //select statement for AND search
+        $sql = "SELECT * FROM " . $this->tblCars .
+            " WHERE (1";
+
+        foreach ($terms as $term) {
+            $sql .= " AND CarName LIKE '%" . $term . "%'";
+        }
+
+        $sql .= ")";
+
+        //execute the query
+        $query = $this->dbConnection->query($sql);
+
+        // the search failed, return false.
+        if (!$query)
+            return false;
+
+        //search succeeded, but no car was found.
+        if ($query->num_rows == 0)
+            return 0;
+
+        //search succeeded, and found at least 1 car found.
+        //create an array to store all the returned cars
+        $cars = array();
+
+        //loop through all rows in the returned recordsets
+        while ($obj = $query->fetch_object()) {
+            //create a car object
+            $car = new Car(stripslashes($obj->Vin), stripslashes($obj->CarName), stripslashes($obj->Model), stripslashes($obj->Brand), stripslashes($obj->ManYear), stripslashes($obj->Color), stripslashes($obj->MPG));
+
+            //set the id for the Car
+            $car->setCarId($obj->CarID);
+
+            //add the car into the array
+            $cars[] = $car;
+        }
+        return $cars;
     }
 
     public function update_car($id) {
@@ -197,5 +179,35 @@ class CarModel extends Model
 
         //execute the query
         //return $this->dbConnection->query($sql);
+    }
+
+    public function add_car($id) {
+        //if the script did not receive post data, display an error message and then terminate the script immediately
+        if (!filter_has_var(INPUT_POST, 'vin') ||
+            !filter_has_var(INPUT_POST, 'name') ||
+            !filter_has_var(INPUT_POST, 'model') ||
+            !filter_has_var(INPUT_POST, 'brand') ||
+            !filter_has_var(INPUT_POST, 'manYear') ||
+            !filter_has_var(INPUT_POST, 'mpg') ||
+            !filter_has_var(INPUT_POST, 'color')) {
+
+            return false;
+        }
+
+        //retrieve data for the new car; data is sanitized and escaped for security's sake.
+        $vin = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'vin', FILTER_SANITIZE_STRING)));
+        $name = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)));
+        $model = $this->dbConnection->real_escape_string(filter_input(INPUT_POST, 'model', FILTER_SANITIZE_STRING));
+        $brand = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'brand', FILTER_SANITIZE_STRING)));
+        $manYear = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'manYear', FILTER_SANITIZE_NUMBER_INT)));
+        $mpg = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'mpg', FILTER_SANITIZE_NUMBER_INT)));
+        $color = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'color', FILTER_SANITIZE_STRING)));
+
+
+        //query string for add
+        $sql = "INSERT INTO " . $this->tblCars . " VALUES (NULL, '$vin', '$name', '$model', '$brand', '$manYear','$color', '$mpg')";
+
+        //execute the query
+        return $this->dbConnection->query($sql);
     }
 }

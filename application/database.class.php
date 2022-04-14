@@ -24,7 +24,7 @@ class Database
         );
         if (mysqli_connect_errno() != 0) {
             $message = "Connecting database failed: " . mysqli_connect_error() . ".";
-            include 'error.php';
+            include 'car_error.php';
             exit();
         }
     }
