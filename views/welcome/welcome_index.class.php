@@ -21,7 +21,7 @@ class WelcomeIndex extends IndexView {
             <!-- Actual paragraph -->
             <p>Welcome to <strong>Ran's</strong> store!  Besides being a full time Professor at IUPUI, <strong>Ran</strong> has been one of the leading Car's Sales Man in Indianapolis for the last <strong>Twenty Years</strong></p>
             <a href="<?= BASE_URL ?>/index.php/car/index/">
-                <div> Enter<p style="text-align: center">Lets see what we're racin!</p>
+                <p style="text-align: center">Lets see what we're racin!</p>
             </a>
         </div>
 

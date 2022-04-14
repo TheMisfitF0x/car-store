@@ -14,25 +14,31 @@ class CarDetail extends IndexView
         parent::displayHeader("Car Details");
 
         ?>
-        <h2>Car Details for <?=$car->getCarName()?></h2>
-        <table style='border: 1px solid black;'>
+        <div id="CarTitle">
+            <h2><em>Car Details for <?=$car->getCarName()?></em></h2>
+        </div>
+        <div id="CarTable">
+        <table>
             <tr>
-                <th style='border: 1px solid black;'>Vin</th>
-                <th style='border: 1px solid black;'>Model</th>
-                <th style='border: 1px solid black;'>Brand</th>
-                <th style='border: 1px solid black;'>Manufacture Year</th>
-                <th style='border: 1px solid black;'>Color</th>
-                <th style='border: 1px solid black;'>MPG</th>
+                <th>Vin</th>
+                <th>Model</th>
+                <th>Brand</th>
+                <th>Manufacture Year</th>
+                <th>Color</th>
+                <th>MPG</th>
+                <th>Image</th>
             </tr>
             <tr>
-                          <td style='border: 1px solid black;'><?=$car->getVin()?></td>
-                          <td style='border: 1px solid black;'><?=$car->getModel()?></td>
-                          <td style='border: 1px solid black;'><?=$car->getBrand()?></td>
-                          <td style='border: 1px solid black;'><?=$car->getManYear()?></td>
-                          <td style='border: 1px solid black;'><?=$car->getColor()?></td>
-                          <td style='border: 1px solid black;'><?=$car->getMpg()?></td>
+                          <td><?=$car->getVin()?></td>
+                          <td><?=$car->getModel()?></td>
+                          <td><?=$car->getBrand()?></td>
+                          <td><?=$car->getManYear()?></td>
+                          <td><?=$car->getColor()?></td>
+                          <td><?=$car->getMpg()?></td>
+                          <td>*IMAGE</td>
                       </tr>
         </table>
+        </div>
 <?php
   parent::displayFooter();
 

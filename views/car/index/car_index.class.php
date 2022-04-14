@@ -16,6 +16,7 @@ class CarIndex extends IndexView
 
         ?>
         <h2>List of Cars:</h2>
+        <div id="CarTable">
         <table style='border: 1px solid black;'>
             <tr>
                 <th style='border: 1px solid black;'>Car Name</th>
@@ -36,10 +37,15 @@ class CarIndex extends IndexView
                             <td style='border: 1px solid black;'><a href = '$base_url/index.php/car/detail/$vin'>$carName</a></td>
                             <td style='border: 1px solid black;'>$color</td>
                             <td style='border: 1px solid black;'>$mpg</td>
-                        </tr>";
+                        </tr>
+                        </div>
+                        ";
                 }
             }
 
         echo "</table>";
+        parent::displayFooter();
+
     }
+
 }?>
