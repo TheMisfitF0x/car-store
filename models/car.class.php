@@ -9,12 +9,12 @@
 
 class Car
 {
-    private $carId, $vin, $carName, $model, $brand, $manYear, $color, $mpg;
+    private $carId, $vin, $carName, $model, $brand, $manYear, $color, $mpg, $image;
 
 
 
 
-    public function __construct($vin, $carName, $model, $brand, $manYear, $color, $mpg)
+    public function __construct($vin, $carName, $model, $brand, $manYear, $color, $mpg, $image)
     {
         $this->vin = $vin;
         $this->carName = $carName;
@@ -23,6 +23,7 @@ class Car
         $this->manYear = $manYear;
         $this->color = $color;
         $this->mpg = $mpg;
+        $this->image = $image;
     }
 
     public function getVin()
@@ -63,6 +64,11 @@ class Car
     public function getMpg()
     {
         return $this->mpg;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
     }
 
     public function setCarId($id){

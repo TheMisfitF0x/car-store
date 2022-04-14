@@ -20,13 +20,15 @@ class CarDetail extends IndexView
         <div id="CarTable">
         <table>
             <tr>
+                <img src="../../../www/img/<?=$car->getImage()?>">
+            </tr>
+            <tr>
                 <th>Vin</th>
                 <th>Model</th>
                 <th>Brand</th>
                 <th>Manufacture Year</th>
                 <th>Color</th>
                 <th>MPG</th>
-                <th>Image</th>
             </tr>
             <tr>
                           <td><?=$car->getVin()?></td>
@@ -35,7 +37,7 @@ class CarDetail extends IndexView
                           <td><?=$car->getManYear()?></td>
                           <td><?=$car->getColor()?></td>
                           <td><?=$car->getMpg()?></td>
-                          <td>*IMAGE</td>
+
                       </tr>
         </table>
         </div>
