@@ -37,12 +37,12 @@ class IndexView {
         <hr class="hr">
 
         <!--This is the Navigation Tab -->
-        <div id="NavBar">
+        <div class="NavBar">
             <table>
-                <th><a href="<?= BASE_URL ?>/index.php/welcome/index/">Home</a></th>
-                <th><a href="<?= BASE_URL?>/index.php/car/index/">Cars </a></th>
-                <th>Login</th>
-                <th>About</th>
+                <th class="NavBar"><a href="<?= BASE_URL ?>/index.php/welcome/index/">Home</a></th>
+                <th class="NavBar"><a href="<?= BASE_URL?>/index.php/car/index/">Cars </a></th>
+                <th class="NavBar">Login</th>
+                <th class="NavBar">About</th>
                 <th>
                     <div id="searchbar">
                         <form method="get" action="<?=BASE_URL?>/index.php/car/search">

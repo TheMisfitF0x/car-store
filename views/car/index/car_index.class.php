@@ -15,14 +15,16 @@ class CarIndex extends IndexView
         parent::displayHeader("List All Cars");
 
         ?>
-        <h2>List of Cars:</h2>
+        <div id ="ListTitle">
+            <h2>List of Cars:</h2>
+        </div>
         <a href="<?=$base_url?>/index.php/car/add"><button>Add Car</button></a>
         <div id="CarTable">
-        <table style='border: 1px solid black;'>
+        <table>
             <tr>
-                <th style='border: 1px solid black;'>Car Name</th>
-                <th style='border: 1px solid black;'>Color</th>
-                <th style='border: 1px solid black;'>MPG</th>
+                <th>Car Name</th>
+                <th>Color</th>
+                <th>MPG</th>
             </tr>
             <?php
             if ($cars === 0) {
@@ -35,17 +37,19 @@ class CarIndex extends IndexView
                     $mpg = $car->getMpg();
 
                     echo "<tr>
-                            <td style='border: 1px solid black;'><a href = '$base_url/index.php/car/detail/$id'>$carName</a></td>
-                            <td style='border: 1px solid black;'>$color</td>
-                            <td style='border: 1px solid black;'>$mpg</td>
+                            <td><a href = '$base_url/index.php/car/detail/$id'>$carName</a></td>
+                            <td>$color</td>
+                            <td>$mpg</td>
                         </tr>
-                        </div>
                         ";
                 }
-            }
+            }?>
+        </table>
+        </div>
 
-        echo "</table>";
-        parent::displayFooter();
+
+
+<?php
 
     }
 

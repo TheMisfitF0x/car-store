@@ -12,6 +12,8 @@ class CarError extends IndexView
     public function display($message)
     {
         ?>
+
+
         <p><?=$message?></p>
 <?php
     }
