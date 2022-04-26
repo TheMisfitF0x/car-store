@@ -16,7 +16,7 @@
 body { background-color: coral;color: black;font-family:"Comic Sans MS"; font-size: 16px;
 }
 
-td { font-size: 12px;  }
+td { font-size: 16px;  }
 
 /*This would be the Line dividers*/
 .hr { /*This would be a class*/
@@ -63,7 +63,7 @@ h1 {}
     text-align: center;
     background-color: white;
     border: black 2px solid;
-    border-radius: 5px;
+    border-radius: 10px;
     border-collapse: collapse;
     margin-left: 25%;
     margin-right: 25%;
@@ -130,7 +130,7 @@ th.NavBar:hover{
 
 
 }
-
+/*For the Add Car Button*/
 #AddCar{
     width:300px;
     display:flex;
@@ -149,9 +149,38 @@ th.NavBar:hover{
 
 
 
-/*car table*/
+/*For the individual view of a car */
 
-#CarTable{
+.viewCarsTable{
+    background-color: white;
+    text-align: center;
+}
+/*For normal data columns *anything that is not links*/
+
+td.viewCarsTable#normal{
+    padding: 20px;
+}
+/*for hovering over links */
+td.viewCarsTable:hover#link{
+    background-color: #ffdaaa;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+table.viewCarsTable{
+    border: 2px solid black;
+    text-align: center;
+    margin-right: 25%;
+    margin-left: 25%;
+
+}
+th.viewCarsTable{
+    border: 1px solid black;
+    background-color: #ff826f;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.CarTable{
 
     background-color: white;
     text-align: center;
@@ -160,7 +189,10 @@ th.NavBar:hover{
     float: left;
     border-bottom: 1px solid #ddd;
 }
-
+img.CarTable{
+    height: 200px;
+    width: 200px;
+}
 
 
 

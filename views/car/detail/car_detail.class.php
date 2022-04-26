@@ -17,10 +17,10 @@ class CarDetail extends IndexView
         <div id="CarTitle">
             <h2><em>Car Details for <?=$car->getCarName()?></em></h2>
         </div>
-        <div id="CarTable">
+        <div class="CarTable">
         <table>
             <tr>
-                <img src="../../../www/img/<?=$car->getImage()?>">
+                <img class="CarTable" src="../../../www/img/<?=$car->getImage()?>">
             </tr>
             <tr>
                 <th>Vin</th>
