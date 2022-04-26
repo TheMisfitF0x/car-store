@@ -57,7 +57,7 @@ class IndexView {
             <p>&copy 2022 Ran's Racing Racers. All Rights Reserved</p>
             <p style="font-size: 9px;">* A Group 7 project By: Logan Douglass, Issac Lowe, Evan Minor, and Logan Orender</p>
         </div>
-
+        <script type="text/javascript" src="<?= BASE_URL ?>/www/js/ajax_autosuggestion.js"></script>
         </body>
         </html>
         <?php
