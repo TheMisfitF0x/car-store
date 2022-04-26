@@ -27,7 +27,8 @@ class IndexView {
 
         <!--This is the header for every page-->
         <div id="header">
-            <img style="float: right;"  src=<?=BASE_URL?>"/www/img/ran.png" alt="ran's picture">
+
+            <img style="float: right;"  src="<?= BASE_URL?>/www/img/ran.png" alt="ran's picture">
             <h1>&nbsp&nbsp&nbsp Ran's</h1>
             <h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Racin</h1>
             <h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Racer's</h1>
@@ -38,9 +39,10 @@ class IndexView {
         <!--This is the Navigation Tab -->
         <div id="NavBar">
             <table>
-                <th><a href="<?= BASE_URL ?>/index.php/car/index/">Home</a></th>
-                <th>List</th>
+                <th><a href="<?= BASE_URL ?>/index.php/welcome/index/">Home</a></th>
+                <th><a href="<?= BASE_URL?>/index.php/car/index/">Cars </a></th>
                 <th>Login</th>
+                <th>About</th>
                 <th>
                     <div id="searchbar">
                         <form method="get" action="<?=BASE_URL?>/index.php/car/search">
