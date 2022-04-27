@@ -47,7 +47,7 @@ class IndexView {
                     <div class="searchbar">
                         <form method="get" action="<?=BASE_URL?>/index.php/car/search">
                             <input name="query-terms" id="searchtextbox" placeholder="Search Cars by Name" autocomplete="off" onkeyup="handleKeyUp(event)">
-                            <input type="submit" value="Go">
+                            <input type="submit" value="Search" class="GoButton" id="GoButtonStyle">
                         </form>
                         <div id="suggestionDiv";></div>
                     </div>
@@ -68,9 +68,11 @@ class IndexView {
     public static function displayFooter() {
         ?>
         <hr class="hr">
-        <div id="footer">
-            <p>&copy 2022 Ran's Racing Racers. All Rights Reserved</p>
-            <p style="font-size: 9px;">* A Group 7 project By: Logan Douglass, Issac Lowe, Evan Minor, and Logan Orender</p>
+        <div class="footer" id="FooterBorder">
+            <div class="footer" id="FooterText">
+                <p>&copy 2022 Ran's Racing Racers. All Rights Reserved</p>
+                <p style="font-size: 9px;">* A Group 7 project By: Logan Douglass, Issac Lowe, Evan Minor, and Logan Orender</p>
+            </div>
         </div>
         <hr class="hr">
         <!--Auto suggestion Javascript -->

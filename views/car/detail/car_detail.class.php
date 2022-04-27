@@ -14,14 +14,14 @@ class CarDetail extends IndexView
         parent::displayHeader("Car Details");
 
         ?>
-        <div id="CarTitle">
-            <h2><em>Car Details for <?=$car->getCarName()?></em></h2>
+        <div class="ListTitle" id="TitleBorder">
+            <div >
+                <h2 class="ListTitle" id="TitleText"><em>Car Details for <?=$car->getCarName()?></em></h2>
+            </div>
         </div>
-        <div class="CarTable">
-        <table class="NavBar">
-            <tr>
-                <img class="CarTable" src="../../../www/img/<?=$car->getImage()?>">
-            </tr>
+        <div class="CarTable" id="InvCarBorder">
+            <img class="CarTable" src="../../../www/img/<?=$car->getImage()?>">
+        <table class="viewCarsTable">
             <tr>
                 <th>Vin</th>
                 <th>Model</th>
@@ -38,11 +38,14 @@ class CarDetail extends IndexView
                           <td><?=$car->getColor()?></td>
                           <td><?=$car->getMpg()?></td>
 
-                      </tr>
+            </tr>
         </table>
         </div>
-<?php
-  parent::displayFooter();
+        <p>hello</p>
+        <?php
+        self::displayFooter();
+        ?>
 
+<?php
     }
 }?>

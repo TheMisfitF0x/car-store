@@ -46,8 +46,9 @@ class CarIndex extends IndexView
                 }
             }?>
         </table>
+            <a href="<?=$base_url?>/index.php/car/add"><button class="AddCar" id="AddCarButton">Add Car to DataBase</button></a>
         </div>
-        <a href="<?=$base_url?>/index.php/car/add"><button>Add Car</button></a>
+
 
         <?php
         parent::displayFooter();

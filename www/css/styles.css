@@ -36,19 +36,28 @@ td { font-size: 16px;  }
 
 /*This is for the Header and Footer*/
 
-#footer {
+div.footer#FooterBorder {
     background-color: white;
     border: black solid 2px;
     border-radius:5px;
     margin-right: 20%;
     margin-left: 20%;
+    margin-top: 10px;
     text-align: center;
     background-color: var(--checker-color-2);
     background-image: var(--checker-gradient), var(--checker-gradient);
     background-position: 0 0, var(--checker-size) var(--checker-size);
     background-size: calc(var(--checker-size) * 2) calc(var(--checker-size) * 2);
 }
-
+div.footer#FooterText{
+    border: black solid 2px;
+    background-image: none;
+    background-color: white;
+    margin-right: 20%;
+    margin-left:  20%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 .header {
     text-align: left;
 
@@ -125,6 +134,24 @@ th.NavBar {
 
 
 }
+/*The go button on the home page*/
+input.GoButton#GoButtonStyle{
+    height: 30px;
+    width: 100px;
+    border: 3px solid black;
+    border-radius: 10px;
+    background-color: #ff826f;
+    background-image: none;
+    padding: 2px;
+    margin-right: 5px;
+    font-size: 14px;
+    font-family: "Comic Sans MS";
+    font-weight: bold;
+}
+
+input.GoButton#GoButtonStyle:hover{
+    background-color:#ffdaaa;
+}
 
 /*Link styling */
 a{
@@ -185,11 +212,19 @@ img.HomeImage{
 
 }
 /*For the Add Car Button*/
-#AddCar{
+button.AddCar#AddCarButton{
     width:300px;
     display:flex;
     flex-direction: column;
     align-items: center;
+    background-color: coral;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+button.AddCar#AddCarButton:hover{
+    background-color: #ffdaaa;
+    font-weight: bold;
 }
 
 .AddCarInput{
@@ -269,16 +304,19 @@ div.viewCarsTable#CarViewBorder{
 
     background-color: white;
     text-align: center;
-    margin-right: 50%;
-    margin-left: 2%;
+    margin-right: 25%;
+    margin-left: 25%;
     float: left;
     border-bottom: 1px solid #ddd;
+
 }
 img.CarTable{
-    height: 200px;
-    width: 200px;
+
 }
 
+div.CarTable#InvCarBorder{
+    border: 2px black solid;
+}
 
 /* styles for the suggestion div block and the spans in it*/
 #suggestionDiv {
@@ -341,3 +379,4 @@ div.ListTitle#TitleBorder{
     background-position: 0 0, var(--checker-size) var(--checker-size);
     background-size: calc(var(--checker-size) * 2) calc(var(--checker-size) * 2);
 }
+
