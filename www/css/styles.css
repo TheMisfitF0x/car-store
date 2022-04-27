@@ -13,7 +13,11 @@
 
 
 
-body { background-color: coral;color: black;font-family:"Comic Sans MS"; font-size: 16px;
+body {  color: black;
+        font-family:"Comic Sans MS";
+        font-size: 16px;
+        background: rgb(131,58,180);
+        background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
 }
 
 td { font-size: 16px;  }
@@ -25,7 +29,7 @@ td { font-size: 16px;  }
     margin-top: 25px;
 }
 
-h1 {}
+
 
 /*This is for the Header and Footer*/
 
@@ -36,17 +40,38 @@ h1 {}
     margin-right: 100px;
     margin-left: 100px;
     text-align: center;
+    background-color: var(--checker-color-2);
+    background-image: var(--checker-gradient), var(--checker-gradient);
+    background-position: 0 0, var(--checker-size) var(--checker-size);
+    background-size: calc(var(--checker-size) * 2) calc(var(--checker-size) * 2);
 }
 
-#header {
+.header {
     text-align: left;
-    background-color: white;
-    border: black solid 2px;
-    border-radius:5px;
+
+    border: black solid 5px;
+    border-radius:75px;
     margin-left: 500px ;
     margin-right: 500px;
     margin-top: 25px;
+    background-color: white;
+    font-family: fantasy;
+    background-color: var(--checker-color-2);
+    background-image: var(--checker-gradient), var(--checker-gradient);
+    background-position: 0 0, var(--checker-size) var(--checker-size);
+    background-size: calc(var(--checker-size) * 2) calc(var(--checker-size) * 2);
 }
+
+
+
+:root {
+    --checker-color-1: orange;
+    --checker-color-2: coral;
+    --checker-size: 25px;
+    --checker-gradient: linear-gradient(45deg, var(--checker-color-1) 25%, transparent 25%, transparent 75%, var(--checker-color-1) 75%);
+}
+
+
 /*Actual search bar*/
 
 #searchbar {
@@ -61,13 +86,16 @@ h1 {}
 
 .NavBar{
     text-align: center;
-    background-color: white;
     border: black 2px solid;
     border-radius: 10px;
     border-collapse: collapse;
     margin-left: 25%;
     margin-right: 25%;
     padding: 5px;
+    background-color: var(--checker-color-2);
+    background-image: var(--checker-gradient), var(--checker-gradient);
+    background-position: 0 0, var(--checker-size) var(--checker-size);
+    background-size: calc(var(--checker-size) * 2) calc(var(--checker-size) * 2);
 
 
 
@@ -77,6 +105,8 @@ th.NavBar {
     width: 100px;
     border: 1px solid black;
     background-color: #ff826f;
+    background-image: none;
+
     padding: 5px;
     margin-right: 5px;
 
@@ -114,7 +144,18 @@ th.NavBar:hover{
     background-color: white;
     margin-right: 200px;
     margin-left: 200px;
-    margin-top: 75px;
+    margin-top: 20px;
+}
+.HomeImage{
+    text-align: center;
+
+    padding-top: 20px;
+}
+img.HomeImage{
+
+    padding-top: 0px;
+    border: black solid 5px;
+    border-radius: 10px;
 }
 
 /* this is the style for the tables of info */

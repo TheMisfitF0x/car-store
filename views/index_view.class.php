@@ -26,9 +26,10 @@ class IndexView {
         <body>
 
         <!--This is the header for every page-->
-        <div id="header">
+        <div class="header">
 
-            <img style="float: right;"  src="<?= BASE_URL?>/www/img/ran.png" alt="ran's picture">
+            <img style="float: right;margin-right: 50px;margin-top: 5px"  src="<?= BASE_URL?>/www/img/ran.png" alt="ran's picture">
+            <h2 style="text-align: center;background-color: white ;border: black 3px solid; border-radius: 20px; width: 80px;margin-left: 190px">Let's Zoom</h2>
             <h1>&nbsp&nbsp&nbsp Ran's</h1>
             <h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Racin</h1>
             <h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Racer's</h1>
