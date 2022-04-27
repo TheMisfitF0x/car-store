@@ -17,12 +17,22 @@ class UserController
 
     //Loads in the login form page
     public function login(){
+
         $login = new Login();
-        $login->display();
+        $login_status = 0;
+        if (isset($_SESSION['login_status'])){
+            $login_status = $_SESSION['login_status'];
+        }
+
+        if ($login_status == 0){
+            $login->display();
+        }
+
+
     }
 
     //Submits info from the login form into the database
     public function sign(){
-
+        echo "test";
     }
 }
