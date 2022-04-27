@@ -41,6 +41,26 @@ class UserController
             return;
         }
 
-        echo "test";
+        $view = new Sign();
+        $view->display();
+    }
+
+    public function logout(){
+        //start session if it has not already started
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        //unset all the session variables
+        $_SESSION = array();
+
+        //delete the session cookie
+        setcookie(session_name(), "", time() - 3600);
+
+        //destroy the session
+        session_destroy();
+
+        $view = new Logout();
+        $view->display();
     }
 }
