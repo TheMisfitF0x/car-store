@@ -279,8 +279,7 @@ table.viewCarsTable{
     padding: 10px;
     border: 2px solid black;
     text-align: center;
-    margin-right: 25%;
-    margin-left: 25%;
+
     background-image: none;
     background-color: darkorange;
 
@@ -291,6 +290,7 @@ th.viewCarsTable{
     padding: 20px;
     margin-right: 5px;
     background-image: none;
+
 }
 
 div.viewCarsTable#CarViewBorder{
@@ -306,18 +306,34 @@ div.viewCarsTable#CarViewBorder{
     text-align: center;
     margin-right: 25%;
     margin-left: 25%;
-    float: left;
     border-bottom: 1px solid #ddd;
 
 }
 img.CarTable{
+    width: 300px;
+    height: 300px;
+    border: black solid 5px;
+    border-radius: 10px;
 
 }
 
 div.CarTable#InvCarBorder{
     border: 2px black solid;
+    margin-right: 25%;
+    margin-left: 25%;
 }
 
+th.CarTable{
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    background-image: none;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+table.CarTable{
+    margin-right: 100px;
+}
 /* styles for the suggestion div block and the spans in it*/
 #suggestionDiv {
     position: absolute;
