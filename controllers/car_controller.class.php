@@ -3,7 +3,7 @@
  * Author: Logan Douglass
  * Date: 4/5/2022
  * File: car_controller.class.php
- * Description:
+ * Description: The main controller class responsible for any actions involving cars
  */
 
 class CarController
