@@ -1,9 +1,13 @@
 /*
- * This script contains AJAX methods
+ * Author: Logan Douglass
+ * Date: April 26, 2022
+ * File: ajax_autosuggestion.js
+ * Description: controls the ajax needed for autosuggestions
+ *
  */
 var xmlHttp;
-var numCars = 0;  //total number of suggested movies titles
-var activeCar = -1;  //movie title currently being selected
+var numCars = 0;  //total number of suggested cars
+var activeCar = -1;  //car name currently being selected
 var searchBoxObj, suggestionBoxObj;
 
 //this function creates a XMLHttpRequest object. It should work with most types of browsers.
@@ -43,7 +47,6 @@ function suggest(query) {
 
     //proceed only if the search term isn't empty
     // open an asynchronous request to the server.
-    console.log(base_url);
     xmlHttp.open("GET", base_url + "/index.php" + "/" + media + "/suggest/" + query, true);
 
     //handle server's responses
@@ -54,7 +57,7 @@ function suggest(query) {
             var carList = JSON.parse(xmlHttp.responseText);
             console.log(carList[0]);
             //console.log(titlesJSON);
-            // display suggested titles in a div block
+            // display suggested cars in a div block
             displayCars(carList);
         }
     };
@@ -64,7 +67,7 @@ function suggest(query) {
 }
 
 
-/* This function populates the suggestion box with spans containing all the titles
+/* This function populates the suggestion box with spans containing all the cars
  * The parameter of the function is a JSON object
  * */
 function displayCars(carList) {
@@ -78,7 +81,7 @@ function displayCars(carList) {
     }
 
     var divContent = "";
-    //retrive the titles from the JSON doc and create a new span for each title
+    //retrieve the cars from the JSON doc and create a new span for each title
     for (i = 0; i < carList.length; i++) {
         divContent += "<span id=s_" + i + " onclick='clickCar(this)'>" + carList[i] + "</span>";
     }
@@ -127,9 +130,9 @@ function handleKeyUp(e) {
 
 
 
-//when a title is clicked, fill the search box with the title and then hide the suggestion list
+//when a car is clicked, fill the search box with the title and then hide the suggestion list
 function clickCar(carList) {
-    //display the title in the search box
+    //display the car in the search box
     searchBoxObj.value = carList.innerHTML;
 
     //hide all suggestions
