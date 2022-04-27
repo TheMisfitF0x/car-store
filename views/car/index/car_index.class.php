@@ -15,10 +15,12 @@ class CarIndex extends IndexView
         parent::displayHeader("List All Cars");
 
         ?>
-        <div id ="ListTitle">
-            <h2>Select Your Next Ride</h2>
+        <div class="ListTitle" id="TitleBorder">
+            <div>
+                <h2 class ="ListTitle" id="TitleText">Select Your Next Ride</h2>
+            </div>
         </div>
-        <div class="viewCarsTable">
+        <div class="viewCarsTable" id="CarViewBorder">
         <table class="viewCarsTable">
             <tr>
                 <th class="viewCarsTable">Car Name</th>

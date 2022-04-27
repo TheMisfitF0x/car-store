@@ -18,7 +18,7 @@ class CarDetail extends IndexView
             <h2><em>Car Details for <?=$car->getCarName()?></em></h2>
         </div>
         <div class="CarTable">
-        <table>
+        <table class="NavBar">
             <tr>
                 <img class="CarTable" src="../../../www/img/<?=$car->getImage()?>">
             </tr>
