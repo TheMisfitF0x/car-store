@@ -11,6 +11,7 @@ class Login extends IndexView
         parent::displayHeader("Login");
         ?>
         <h1>Login</h1>
+
         <?php
         parent::displayFooter();
     }

@@ -15,8 +15,14 @@ class UserController
         //$this->user_model = UserModel::getUserModel();
     }
 
+    //Loads in the login form page
     public function login(){
         $login = new Login();
         $login->display();
+    }
+
+    //Submits info from the login form into the database
+    public function sign(){
+
     }
 }
