@@ -19,7 +19,7 @@ class UserController
     public function login(){
 
         $login = new Login();
-        $login_status = 0;
+        $login_status = null;
         if (isset($_SESSION['login_status'])){
             $login_status = $_SESSION['login_status'];
         }
@@ -27,12 +27,20 @@ class UserController
         if ($login_status == 0){
             $login->display();
         }
-
-
     }
 
     //Submits info from the login form into the database
     public function sign(){
+        //Grabs login info from post and confirms it exists in the database. Also sets SESSION variables
+        $sign = $this->$user_model->login();
+
+        if (!$sign) {
+            //handle errors
+            $message = "There was a problem logging in";
+            $this->error($message);
+            return;
+        }
+
         echo "test";
     }
 }
