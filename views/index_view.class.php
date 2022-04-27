@@ -40,7 +40,7 @@ class IndexView {
             <table>
                 <th class="NavBar"><a href="<?= BASE_URL ?>/index.php/welcome/index/">Home</a></th>
                 <th class="NavBar"><a href="<?= BASE_URL?>/index.php/car/index/">Cars </a></th>
-                <th class="NavBar">Login</th>
+                <th class="NavBar"><a href="<?= BASE_URL?>/index.php/user/login/">Login</th>
                 <th class="NavBar">About</th>
                 <th>
                     <div id="searchbar">
