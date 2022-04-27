@@ -28,9 +28,7 @@ class IndexView {
 
         <!--This is the header for every page-->
         <div class="header">
-            <img style="float: right;"  src="<?= BASE_URL?>/www/img/ran.png" alt="ran's picture">
-            <h2 style="text-align: center;background-color: white ;border: black 3px solid; border-radius: 20px; width: 80px;margin-left: 190px">Let's Zoom</h2>
-
+            <img style="float: right;"  src="<?= BASE_URL ?>/www/img/ran.png" alt="ran's picture">
             <h1>&nbsp&nbsp&nbsp Ran's</h1>
             <h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Racin</h1>
             <h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Racer's</h1>
@@ -50,6 +48,7 @@ class IndexView {
                             <input name="query-terms" id="searchtextbox" placeholder="Search Cars by Name" autocomplete="off" onkeyup="handleKeyUp(event)">
                             <input type="submit" value="Go">
                         </form>
+                        <div id="suggestionDiv"></div>
                     </div>
                 </th>
             </table>
