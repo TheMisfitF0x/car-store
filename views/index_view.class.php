@@ -27,24 +27,36 @@ class IndexView {
         <body>
 
         <!--This is the header for every page-->
-        <div id="header">
-            <img style="float: right;"  src="www/img/ran.png" alt="ran's picture">
+        <div class="header">
+            <img style="float: right;"  src="<?= BASE_URL?>/www/img/ran.png" alt="ran's picture">
+            <h2 style="text-align: center;background-color: white ;border: black 3px solid; border-radius: 20px; width: 80px;margin-left: 190px">Let's Zoom</h2>
+
             <h1>&nbsp&nbsp&nbsp Ran's</h1>
             <h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Racin</h1>
             <h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Racer's</h1>
 
         </div>
         <hr class="hr">
-
-
-        <!-- This is the search bar  -->
-        <div id="searchbar">
-            <form method="get" action="<?=BASE_URL?>/index.php/car/search">
-                <input name="query-terms" id="searchtextbox" placeholder="Search Cars by Name" autocomplete="off" onkeyup="handleKeyUp(event)">
-                <input type="submit" value="Go">
-            </form>
-            <div id="suggestionDiv"></div>
+        <!--This is the Navigation Tab -->
+        <div class="NavBar">
+            <table>
+                <th class="NavBar"><a href="<?= BASE_URL ?>/index.php/welcome/index/">Home</a></th>
+                <th class="NavBar"><a href="<?= BASE_URL?>/index.php/car/index/">Cars </a></th>
+                <th class="NavBar">Login</th>
+                <th class="NavBar">About</th>
+                <th>
+                    <div id="searchbar">
+                        <form method="get" action="<?=BASE_URL?>/index.php/car/search">
+                            <input name="query-terms" id="searchtextbox" placeholder="Search Cars by Name" autocomplete="off" onkeyup="handleKeyUp(event)">
+                            <input type="submit" value="Go">
+                        </form>
+                    </div>
+                </th>
+            </table>
         </div>
+
+
+
 
 
 
