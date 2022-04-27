@@ -96,7 +96,22 @@ class CarController
         $view->display();
     }
 
+    //autosuggestion
+    public function suggest($terms) {
+        //retrieve query terms
+        $query_terms = urldecode(trim($terms));
+        $cars = $this->car_model->search_car($query_terms);
 
+        //retrieve all movie titles and store them in an array
+        $carList = array();
+        if ($cars) {
+            foreach ($cars as $car) {
+                $carList[] = $car->getCarName();
+            }
+        }
+
+        echo json_encode($carList);
+    }
 
     //display a movie in a form for editing
     //IGNORE FOR NOW

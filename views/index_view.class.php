@@ -21,6 +21,7 @@ class IndexView {
             <script>
                 //create the JavaScript variable for the base url
                 var base_url = "<?= BASE_URL ?>";
+                var media = "car";
             </script>
         </head>
         <body>
@@ -42,6 +43,7 @@ class IndexView {
                 <input name="query-terms" id="searchtextbox" placeholder="Search Cars by Name" autocomplete="off" onkeyup="handleKeyUp(event)">
                 <input type="submit" value="Go">
             </form>
+            <div id="suggestionDiv"></div>
         </div>
 
 
