@@ -395,3 +395,14 @@ div.ListTitle#TitleBorder{
     background-size: calc(var(--checker-size) * 2) calc(var(--checker-size) * 2);
 }
 
+.CarImage {
+    width: 300px;
+    height: 300px;
+    border: black solid 5px;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 0 auto;
+}
+

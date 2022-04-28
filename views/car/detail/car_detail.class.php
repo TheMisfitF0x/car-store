@@ -20,7 +20,8 @@ class CarDetail extends IndexView
             </div>
         </div>
         <div class="CarTable" id="InvCarBorder">
-            <img class="CarTable" src="../../../www/img/<?=$car->getImage()?>">
+            <div class="CarImage" style="background-image: url(../../../www/img/<?=$car->getImage()?>)"></div>
+            <!--<img class="CarTable" src="../../../www/img/<?=$car->getImage()?>">-->
         <table class="CarTable">
             <tr>
                 <th class="CarTable">Vin</th>
