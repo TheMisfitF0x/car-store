@@ -39,19 +39,24 @@ class IndexView {
         <!--This is the Navigation Tab -->
         <div class="NavBar">
             <table>
-                <th class="NavBar"><a href="<?= BASE_URL ?>/index.php/welcome/index/">Home</a></th>
-                <th class="NavBar"><a href="<?= BASE_URL?>/index.php/car/index/">Cars </a></th>
-                <th class="NavBar"><a href="<?= BASE_URL?>/index.php/user/login/">Login</th>
-                <th class="NavBar">About</th>
-                <th>
+                <tr>
+                    <th class="NavBar"><a href="<?= BASE_URL ?>/index.php/welcome/index/">Home</a></th>
+                    <th class="NavBar"><a href="<?= BASE_URL?>/index.php/car/index/">Cars </a></th>
+                    <th class="NavBar"><a href="<?= BASE_URL?>/index.php/user/login/">Login</th>
+                    <th class="NavBar">About</th>
                     <div class="searchbar">
                         <form method="get" action="<?=BASE_URL?>/index.php/car/search">
-                            <input name="query-terms" id="searchtextbox" placeholder="Search Cars by Name" autocomplete="off" onkeyup="handleKeyUp(event)">
-                            <input type="submit" value="Search" class="GoButton" id="GoButtonStyle">
-                        </form>
+                    <td>
+                        <input name="query-terms" id="searchtextbox" placeholder="Search Cars by Name" autocomplete="off" onkeyup="handleKeyUp(event)">
                         <div id="suggestionDiv";></div>
+                    </td>
+                            <td>
+                                <input type="submit" value="Search" class="GoButton" id="GoButtonStyle">
+                            </td>
+                        </form>
                     </div>
-                </th>
+                </tr>
+
             </table>
         </div>
         <hr class="hr">
