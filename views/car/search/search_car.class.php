@@ -13,13 +13,16 @@ class SearchCar extends IndexView
     //display page header
     parent::displayHeader("Search Results");
     ?>
-    <h2>List of Cars Containing <?=$terms?>:</h2>
-    <table style='border: 1px solid black;'>
-        <tr>
-            <th style='border: 1px solid black;'>Car Name</th>
-            <th style='border: 1px solid black;'>Color</th>
-            <th style='border: 1px solid black;'>MPG</th>
-        </tr>
+<div class="ListTitle" id="TitleBorder" xmlns="http://www.w3.org/1999/html">
+        <h2 class="ListTitle" id="TitleText">List of Cars Containing <strong>"<?=$terms?>"</strong>:</h2>
+    </div>
+    <div class="viewCarsTable" id="CarViewBorder">
+        <table class="viewCarsTable">
+            <tr>
+                <th class="viewCarsTable">Car Name</th>
+                <th class="viewCarsTable">Color</th>
+                <th class="viewCarsTable">MPG</th>
+            </tr>
         <?php
         if ($cars === 0) {
             echo "No car was found";
@@ -31,13 +34,19 @@ class SearchCar extends IndexView
                 $mpg = $car->getMpg();
 
                 echo "<tr>
-                            <td style='border: 1px solid black;'><a href = '$base_url/index.php/car/detail/$id'>$carName</a></td>
-                            <td style='border: 1px solid black;'>$color</td>
-                            <td style='border: 1px solid black;'>$mpg</td>
+                            <td class='viewCarsTable' id='link' ><a href = '$base_url/index.php/car/detail/$id'>$carName</a></td>
+                            <td class='viewCarsTable' id='normal' style='border: 1px solid black;'>$color</td>
+                            <td class='viewCarsTable' id='normal'>$mpg</td>
                         </tr>";
             }
-        }
+        }?>
+        </table>
+    </div>
+        <?php
+        self::displayFooter();
+        ?>
 
-        echo "</table>";
+
+<?php
         }
     }?>
