@@ -64,7 +64,7 @@ class UserModel
         }
 
         //validate email and password against a record in the users table in the database. If they are valid, create session variables.
-        $sql = "SELECT * FROM " . $this->tblUsers . " WHERE Email='$email' AND Password='$password'";
+        $sql = "SELECT * FROM " . $this->tblUsers . " WHERE Email= '$email' AND Password= '$password'";
         $query = $this->dbConnection->query($sql);
 
         if ($query->num_rows) {

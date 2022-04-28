@@ -13,7 +13,6 @@ class CarIndex extends IndexView
         $base_url = BASE_URL;
         //display page header
         parent::displayHeader("List All Cars");
-
         ?>
         <div class="ListTitle" id="TitleBorder">
             <div>
