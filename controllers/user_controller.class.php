@@ -63,4 +63,8 @@ class UserController
         $view = new Logout();
         $view->display();
     }
+
+    public function error($message){
+        echo $message;
+    }
 }
