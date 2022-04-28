@@ -52,7 +52,7 @@ class Database
     }
 
     //returns the name of the table storing games
-    public function getUsersTable() {
+    public function getUserTable() {
         return $this->param['tblUsers'];
     }
 
