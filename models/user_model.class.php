@@ -18,7 +18,7 @@ class UserModel
     private function __construct() {
         $this->db = Database::getDatabase();
         $this->dbConnection = $this->db->getConnection();
-        $this->tblUsers = $this->db->getUsersTable();
+        $this->tblUsers = $this->db->getUserTable();
 
         //Escapes special characters in a string for use in an SQL statement. This stops SQL inject in POST vars.
         foreach ($_POST as $key => $value) {
