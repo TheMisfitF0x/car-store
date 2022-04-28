@@ -9,7 +9,13 @@ class Sign extends IndexView
 {
     public function display(){
         parent::displayHeader("Success");
-        echo "Successfully signed in";
-        parent::displayFooter();
+        ?>
+        <div class="ListTitle" id="TitleBorder">
+            <h2 class="ListTitle" id="TitleText">Login Successful</h2>
+        </div>
+        <?php
+        parent::displayFooter();?>
+
+<?php
     }
-}
+}?>

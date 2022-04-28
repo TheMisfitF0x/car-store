@@ -16,7 +16,7 @@ class WelcomeIndex extends IndexView {
         <div class="HomeImage">
             <img class="HomeImage" src="<?= BASE_URL?>/www/img/homeImage.jpg" alt="homeImage">
         </div>
-        <div id="WelcomeText">
+        <div class="RegText">
             <!-- the title of welcome text-->
             <p style="font-size: 20px">Welcome to <strong>Ran's Racin Racer's</strong></p>
             <!-- Actual paragraph -->

@@ -9,7 +9,15 @@ class Logout extends IndexView
 {
     public function display(){
         parent::displayHeader("Logged out");
-        echo "Successfully logged out";
-        parent::displayFooter();
+        ?>
+        <div class="ListTitle" id="TitleBorder">
+            <h2 class="ListTitle" id="TitleText">Logout Successful</h2>
+        </div>
+
+        <?php
+        parent::displayFooter();?>
+
+
+<?php
     }
-}
+}?>
