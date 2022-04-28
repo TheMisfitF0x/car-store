@@ -304,7 +304,8 @@ div.viewCarsTable#CarViewBorder{
 
     background-color: white;
     text-align: center;
-
+    margin-right: auto;
+    margin-left: auto;
     border-bottom: 1px solid #ddd;
 
 }
@@ -331,7 +332,7 @@ th.CarTable{
     border-radius: 5px;
 }
 table.CarTable{
-    margin-right: 100px;
+    margin: 0 auto;
 }
 /* styles for the suggestion div block and the spans in it*/
 #suggestionDiv {
