@@ -17,7 +17,6 @@ class UserController
 
     //Loads in the login form page
     public function login(){
-        echo "test";
         $login = new Login();
         $login_status = 0;
         if (isset($_SESSION['login_status'])){
