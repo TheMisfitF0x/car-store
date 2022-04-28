@@ -12,14 +12,14 @@ class UserController
     //default constructor
     public function __construct() {
         //create an instance of the MovieModel class
-        //$this->user_model = UserModel::getUserModel();
+        $this->user_model = UserModel::getUserModel();
     }
 
     //Loads in the login form page
     public function login(){
-
+        echo "test";
         $login = new Login();
-        $login_status = null;
+        $login_status = 0;
         if (isset($_SESSION['login_status'])){
             $login_status = $_SESSION['login_status'];
         }
@@ -32,7 +32,7 @@ class UserController
     //Submits info from the login form into the database
     public function sign(){
         //Grabs login info from post and confirms it exists in the database. Also sets SESSION variables
-        $sign = $this->$user_model->login();
+        $sign = $this->user_model->login();
 
         if (!$sign) {
             //handle errors

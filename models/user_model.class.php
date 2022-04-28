@@ -47,6 +47,39 @@ class UserModel
      * Cars should also be filtered by ratings and/or sorted by titles or rating if they are available.
      */
 
+    public function login(){
+        //start session if it has not already started
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        //create variable login status.
+        $_SESSION['login_status'] = 0;
+        $email = $password = "";
+
+        //retrieve username and password from the form in the login form
+        if (filter_has_var(INPUT_POST, 'email') || filter_has_var(INPUT_POST, 'password')) {
+            $email = $conn->real_escape_string(trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL)));
+            $password = $conn->real_escape_string(trim(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING)));
+        }
+
+        //validate email and password against a record in the users table in the database. If they are valid, create session variables.
+        $sql = "SELECT * FROM" . $this->tblUsers . "WHERE Email='$email' AND Password='$password'";
+        $query = @$conn->query($sql);
+
+        if ($query->num_rows) {
+            //It is a valid user. Need to store the user in session variables.
+            $row = $query->fetch_assoc();
+            $_SESSION['login'] = $email;
+            $_SESSION['role'] = $row['UserType'];
+            $_SESSION['name'] = $row['FirstName'];
+            $_SESSION['login_status'] = 1;
+        }
+
+        //close the connection
+        $conn->close();
+    }
+
     public function list_user() {
 
 
