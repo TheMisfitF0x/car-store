@@ -18,7 +18,7 @@ class UserModel
     private function __construct() {
         $this->db = Database::getDatabase();
         $this->dbConnection = $this->db->getConnection();
-        $this->tblUsers = $this->db->getUsersTable();
+        $this->tblUsers = $this->db->getUserTable();
 
         //Escapes special characters in a string for use in an SQL statement. This stops SQL inject in POST vars.
         foreach ($_POST as $key => $value) {
@@ -59,13 +59,14 @@ class UserModel
 
         //retrieve username and password from the form in the login form
         if (filter_has_var(INPUT_POST, 'email') || filter_has_var(INPUT_POST, 'password')) {
-            $email = $conn->real_escape_string(trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL)));
-            $password = $conn->real_escape_string(trim(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING)));
+            $email = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL)));
+            $password = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING)));
         }
 
         //validate email and password against a record in the users table in the database. If they are valid, create session variables.
-        $sql = "SELECT * FROM" . $this->tblUsers . "WHERE Email='$email' AND Password='$password'";
-        $query = @$conn->query($sql);
+        $sql = "SELECT * FROM " . $this->tblUsers . " WHERE Email='$email' AND Password='$password'";
+        $query = $this->dbConnection->query($sql);
+        
 
         if ($query->num_rows) {
             //It is a valid user. Need to store the user in session variables.
@@ -77,7 +78,7 @@ class UserModel
         }
 
         //close the connection
-        $conn->close();
+        $this->dbConnection->close();
     }
 
     public function list_user() {
