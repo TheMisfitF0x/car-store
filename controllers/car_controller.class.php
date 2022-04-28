@@ -51,26 +51,35 @@ class CarController
 
     //Searches cars from the database
     public function search() {
-        //retrieve query terms from search form
-        $query_terms = trim($_GET['query-terms']);
+        try {
+            //retrieve query terms from search form
+            $query_terms = trim($_GET['query-terms']);
 
-        //if search term is empty, list all movies
-        if ($query_terms == "") {
-            $this->index();
+            //if search term is empty, throw an error
+            if ($query_terms == "") {
+                throw new EmptySearchException("Error: Search cannot be empty");
+            }
+
+            //search the database for matching cars
+            $cars = $this->car_model->search_car($query_terms);
+
+            /**if ($cars === 0) {
+                //handle error
+                throw new NoCarsException("Your search yielded no results (There are NO cars!)");
+            }**/
+            //display matched movies
+            $search = new SearchCar();
+            $search->display($query_terms, $cars);
         }
-
-        //search the database for matching movies
-        $cars = $this->car_model->search_car($query_terms);
-
-        if ($cars === false) {
-            //handle error
-            $message = "There ARE NO CARS!.";
+        catch (NoCarsException $e){
+            $message = $e->getMessage();
             $this->error($message);
-            return;
         }
-        //display matched movies
-        $search = new SearchCar();
-        $search->display($query_terms, $cars);
+        catch (EmptySearchException $e){
+            $message = $e->getMessage();
+            $this->error($message);
+        }
+
     }
 
     public function add(){

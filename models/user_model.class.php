@@ -67,7 +67,6 @@ class UserModel
         $sql = "SELECT * FROM " . $this->tblUsers . " WHERE Email='$email' AND Password='$password'";
         $query = $this->dbConnection->query($sql);
 
-
         if ($query->num_rows) {
             //It is a valid user. Need to store the user in session variables.
             $row = $query->fetch_assoc();
@@ -75,11 +74,12 @@ class UserModel
             $_SESSION['role'] = $row['UserType'];
             $_SESSION['name'] = $row['FirstName'];
             $_SESSION['login_status'] = 1;
+            return true;
         }
 
         //close the connection
         $this->dbConnection->close();
-        return true;
+
     }
 
     public function list_user() {

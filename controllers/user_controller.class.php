@@ -33,15 +33,19 @@ class UserController
         //Grabs login info from post and confirms it exists in the database. Also sets SESSION variables
         $sign = $this->user_model->login();
 
-        if (!$sign) {
-            //handle errors
-            $message = "There was a problem logging in";
-            $this->error($message);
-            return;
+        try{
+            if (!$sign) {
+                throw new InvalidLoginException("Error: Invalid username or password");
+            }
+            $view = new Sign();
+            $view->display();
         }
 
-        $view = new Sign();
-        $view->display();
+        catch(InvalidLoginException $e){
+            $message = $e->getMessage();
+            $this->error($message);
+        }
+
     }
 
     public function logout(){
@@ -64,6 +68,7 @@ class UserController
     }
 
     public function error($message){
-        echo $message;
+        $error = new UserError;
+        $error->display($message);
     }
 }
