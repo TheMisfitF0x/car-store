@@ -10,6 +10,18 @@ class IndexView {
 
     //this method displays the page header
     static public function displayHeader($page_title) {
+        //variables for a user's login, name, and role
+        $login = null;
+        $name = null;
+        $role = 0;
+
+        //if the use has logged in, retrieve login, name, and role.
+        if (isset($_SESSION['login']) AND isset($_SESSION['name']) AND
+            isset($_SESSION['role']))   {
+            $login = $_SESSION['login'];
+            $name = $_SESSION['name'];
+            $role = $_SESSION['role'];
+        }
         ?>
         <!DOCTYPE html>
         <html>
@@ -42,7 +54,14 @@ class IndexView {
                 <tr>
                     <th class="NavBar"><a href="<?= BASE_URL ?>/index.php/welcome/index/">Home</a></th>
                     <th class="NavBar"><a href="<?= BASE_URL?>/index.php/car/index/">Cars </a></th>
-                    <th class="NavBar"><a href="<?= BASE_URL?>/index.php/user/login/">Login</th>
+                    <?php
+                        if ($login==null){
+                            ?><th class="NavBar"><a href="<?= BASE_URL?>/index.php/user/login/">Login</th><?php
+                        }else{
+                            ?><th class="NavBar"><a href="<?= BASE_URL?>/index.php/user/logout/">Logout</th><?php
+                        }
+                    ?>
+
                     <th class="NavBar">About</th>
                     <div class="searchbar">
                         <form method="get" action="<?=BASE_URL?>/index.php/car/search">
