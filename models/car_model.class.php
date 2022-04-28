@@ -8,8 +8,6 @@
  */
 class CarModel
 {
-
-
     //private data members
     private $db;
     private $dbConnection;

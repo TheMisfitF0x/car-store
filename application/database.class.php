@@ -9,7 +9,7 @@ class Database
         'password' => 'phpuser',
         'database' => 'rans_roadsters',
         'tblCars' => 'cars',
-        'tblCustomers' => 'customers',
+        'tblUsers' => 'users',
         'tblOrders' => 'orders',
         'tblSuppliers' => 'suppliers'
     );
@@ -52,8 +52,8 @@ class Database
     }
 
     //returns the name of the table storing games
-    public function getCustomersTable() {
-        return $this->param['tblCustomers'];
+    public function getUsersTable() {
+        return $this->param['tblUsers'];
     }
 
     //returns the name of the table storing cds
