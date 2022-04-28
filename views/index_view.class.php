@@ -10,6 +10,10 @@ class IndexView {
 
     //this method displays the page header
     static public function displayHeader($page_title) {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
         //variables for a user's login, name, and role
         $login = null;
         $name = null;
