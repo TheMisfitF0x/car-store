@@ -11,18 +11,71 @@ class CarAdd extends IndexView
         $base_url = BASE_URL;
         parent::displayHeader("Add New Car");
         ?>
-        <h2>Add a New Car</h2>
+        <div class="ListTitle" id="TitleBorder">
+            <h2 class="ListTitle" id="TitleText">Add a New Car</h2>
+        </div>
+        <div class="viewCarsTable" id="CarViewBorder">
         <form method="post" action="<?=$base_url?>/index.php/car/submit" id="AddCar">
-            <input name="vin" type="text" placeholder="Car Vin" required class="AddCarInput">
-            <input name="car_name" type="text" placeholder="Car Name" required class="AddCarInput">
-            <input name="model" type="text" placeholder="Model" required class="AddCarInput">
-            <input name="brand" type="text" placeholder="Brand" required class="AddCarInput">
-            <input name="man_year" type="number" placeholder="Manufacture Year" required class="AddCarInput">
-            <input name="color" type="text" placeholder="Color" required class="AddCarInput">
-            <input name="mpg" type="number" placeholder="MPG" required class="AddCarInput">
-            <input type="submit" value="Submit" id="AddCarSubmit">
-        </form>
+            <table>
+                    <tr>
+                        <th class="viewCarsTable">VIN</th>
+                        <td class="viewCarsTable" id="link">
+                            <input name="vin" type="text" placeholder="Car Vin" required class="AddCarInput">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="viewCarsTable">Car Name</th>
+                        <td>
+                            <input name="car_name" type="text" placeholder="Car Name" required class="AddCarInput">
+                        </td>
+                    </tr>
+                    <tr>
+                    <th class="viewCarsTable">Model</th>
+                        <td>
+                            <input name="model" type="text" placeholder="Model" required class="AddCarInput">
+                        </td>
+                    </tr>
+                    <tr>
+                    <th class="viewCarsTable">Brand</th>
+                        <td>
+                            <input name="brand" type="text" placeholder="Brand" required class="AddCarInput">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="viewCarsTable">Manufactor Year</th>
+                        <td>
+                            <input name="man_year" type="number" placeholder="Manufacture Year" required class="AddCarInput">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="viewCarsTable">Color</th>
+                        <td>
+                            <input name="color" type="text" placeholder="Color" required class="AddCarInput">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="viewCarsTable">MPG</th>
+                        <td>
+                            <input name="mpg" type="number" placeholder="MPG" required class="AddCarInput">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" value="Submit" id="AddCarSubmit">
+                        </td>
+                    </tr>
+
+
+
+
+
+                </table>
+            </form>
+        </div>
         <?php
+        self::displayFooter();
+        ?>
+<?php
     }
 
-}
+}?>

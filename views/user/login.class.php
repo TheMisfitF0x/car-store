@@ -11,12 +11,33 @@ class Login extends IndexView
         $base_url = BASE_URL;
         parent::displayHeader("Login");
         ?>
-        <h1>Login</h1>
-        <form method="post" action="<?=$base_url?>/index.php/user/sign" id="Login">
-            <input name="email" type="email" placeholder="Email" required class="LoginInput">
-            <input name="password" type="password" placeholder="Password" required class="LoginInput">
-            <input type="submit">
-        </form>
+        <div class="ListTitle" id="TitleBorder">
+            <h2 class="ListTitle" id="TitleText">Login</h2>
+        </div>
+        <div class="viewCarsTable" id="CarViewBorder">
+            <form method="post" action="<?=$base_url?>/index.php/user/sign" id="Login">
+                <table >
+                    <tr>
+                        <th class="viewCarsTable" id="password">Email</th>
+                        <td>
+                            <input name="email" type="email" placeholder="Email" required class="LoginInput">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="viewCarsTable">Password</th>
+                        <td>
+                            <input name="password" type="password" placeholder="Password" required class="LoginInput">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit">
+                        </td>
+                    </tr>
+
+                </table>
+            </form>
+        </div>
         <?php
         parent::displayFooter();
     }

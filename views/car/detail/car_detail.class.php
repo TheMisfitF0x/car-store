@@ -21,14 +21,14 @@ class CarDetail extends IndexView
         </div>
         <div class="CarTable" id="InvCarBorder">
             <img class="CarTable" src="../../../www/img/<?=$car->getImage()?>">
-        <table class="viewCarsTable">
+        <table class="CarTable">
             <tr>
-                <th>Vin</th>
-                <th>Model</th>
-                <th>Brand</th>
-                <th>Manufacture Year</th>
-                <th>Color</th>
-                <th>MPG</th>
+                <th class="CarTable">Vin</th>
+                <th class="CarTable">Model</th>
+                <th class="CarTable">Brand</th>
+                <th class="CarTable">Manufacture Year</th>
+                <th class="CarTable">Color</th>
+                <th class="CarTable">MPG</th>
             </tr>
             <tr>
                           <td><?=$car->getVin()?></td>
@@ -41,9 +41,8 @@ class CarDetail extends IndexView
             </tr>
         </table>
         </div>
-        <p>hello</p>
         <?php
-        self::displayFooter();
+       self::displayFooter();
         ?>
 
 <?php
