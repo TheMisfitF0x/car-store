@@ -41,9 +41,8 @@ class CarDetail extends IndexView
             </tr>
         </table>
         </div>
-        <p>hello</p>
         <?php
-        self::displayFooter();
+       self::displayFooter();
         ?>
 
 <?php
