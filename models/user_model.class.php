@@ -79,6 +79,7 @@ class UserModel
 
         //close the connection
         $this->dbConnection->close();
+        return true;
     }
 
     public function list_user() {
