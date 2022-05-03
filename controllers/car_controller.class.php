@@ -138,9 +138,9 @@ class CarController
         $view->display($car);
     }
 
-    //update a movie in the database
+    //update a car in the database
     public function update($id) {
-        //update the movie
+        //update the car
         $update = $this->car_model->update_car($id);
         if (!$update) {
             //handle errors
@@ -149,12 +149,12 @@ class CarController
             return;
         }
 
-        //display the updateed movie details
+        //display the updated car details
         $confirm = "The car was successfully updated.";
         $car = $this->car_model->view_car($id);
 
         $view = new CarDetail();
-        $view->display($car, $confirm);
+        $view->display($car);
     }
 
     public function error($message){
