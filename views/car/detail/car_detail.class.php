@@ -33,12 +33,12 @@ class CarDetail extends IndexView
                 <th class="CarTable">MPG</th>
             </tr>
             <tr>
-                          <td><?=$car->getVin()?></td>
-                          <td><?=$car->getModel()?></td>
-                          <td><?=$car->getBrand()?></td>
-                          <td><?=$car->getManYear()?></td>
-                          <td><?=$car->getColor()?></td>
-                          <td><?=$car->getMpg()?></td>
+                          <td class="CarTable"><?=$car->getVin()?></td>
+                          <td class="CarTable"><?=$car->getModel()?></td>
+                          <td class="CarTable"><?=$car->getBrand()?></td>
+                          <td class="CarTable"><?=$car->getManYear()?></td>
+                          <td class="CarTable"><?=$car->getColor()?></td>
+                          <td class="CarTable"><?=$car->getMpg()?></td>
 
             </tr>
         </table>

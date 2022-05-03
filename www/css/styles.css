@@ -357,11 +357,11 @@ div.aboutRans{
 /*Individual Views */
 .CarTable{
 
-    background-color: white;
+    background-color: darkorange;
     text-align: center;
     margin-right: auto;
     margin-left: auto;
-    border-bottom: 1px solid #ddd;
+
 
 }
 img.CarTable{
@@ -370,24 +370,39 @@ img.CarTable{
     border: black solid 5px;
     border-radius: 10px;
 
+
 }
 
 div.CarTable#InvCarBorder{
-    border: 2px black solid;
+    border: 5px black solid;
+    border-radius: 10px;
     margin-right: 25%;
     margin-left: 25%;
+    margin-top: 20px;
+    padding-top: 50px;
 }
 
 th.CarTable{
     text-align: center;
-    background-color: white;
-    padding: 20px;
+    background-color: coral;
+    padding: 10px;
     background-image: none;
-    border: 1px solid black;
+    border: 4px solid black;
     border-radius: 5px;
 }
+th.CarTable:hover{
+    background-color: #ffdaaa;
+}
+td.CarTable{
+    border: 4px solid black;
+    background-color: white;
+}
+td.CarTable:hover{
+    background-color: lightyellow;
+}
 table.CarTable{
-    margin: 0 auto;
+    margin:  auto;
+    width: 60%;
 }
 /* styles for the suggestion div block and the spans in it*/
 #suggestionDiv {
