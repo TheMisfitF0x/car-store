@@ -17,20 +17,25 @@ class CarController
     }
 
     public function index(){
-        //retrieve all cars and store them in an array
-        $cars = $this->car_model->list_car();
+        try {
+            //retrieve all cars and store them in an array
+            $cars = $this->car_model->list_car();
 
 
-        if (!$cars) {
-            //display an error
-            $message = "There was a problem displaying cars.";
-            $this->error($message);
-            return;
+            if (!$cars) {
+                //display an error
+                throw new CarIndexException();
+            }
+
+            // display all movies
+            $view = new CarIndex();
+            $view->display($cars);
         }
-
-        // display all movies
-        $view = new CarIndex();
-        $view->display($cars);
+        
+        catch (CarIndexException $e){
+            $message = $e->getOutput();
+            $this->error($message);
+        }
     }
 
     public function detail($id){
