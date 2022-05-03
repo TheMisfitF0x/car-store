@@ -10,6 +10,7 @@ class CarDetail extends IndexView
 {
     public function display($car)
     {
+        $base_url = BASE_URL;
         //display page header
         parent::displayHeader("Car Details");
 
@@ -41,6 +42,17 @@ class CarDetail extends IndexView
 
             </tr>
         </table>
+            <?php
+            $role = 0;
+            if (isset($_SESSION['role'])){
+                $role = $_SESSION['role'];
+            }
+            if ($role==2){
+                ?><a href="<?=$base_url?>/index.php/car/edit/<?=$car->getCarId()?>">Edit</a>
+                    <a href="<?=$base_url?>/index.php/car/delete/<?=$car->getCarId()?>">Delete</a><?php
+            }
+            ?>
+
         </div>
         <?php
        self::displayFooter();

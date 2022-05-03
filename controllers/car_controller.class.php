@@ -57,26 +57,18 @@ class CarController
 
             //if search term is empty, throw an error
             if ($query_terms == "") {
-                throw new EmptySearchException("Error: Search cannot be empty");
+                throw new EmptySearchException();
             }
 
             //search the database for matching cars
             $cars = $this->car_model->search_car($query_terms);
 
-            /**if ($cars === 0) {
-                //handle error
-                throw new NoCarsException("Your search yielded no results (There are NO cars!)");
-            }**/
             //display matched movies
             $search = new SearchCar();
             $search->display($query_terms, $cars);
         }
-        catch (NoCarsException $e){
-            $message = $e->getMessage();
-            $this->error($message);
-        }
         catch (EmptySearchException $e){
-            $message = $e->getMessage();
+            $message = $e->getOutput();
             $this->error($message);
         }
 
@@ -122,9 +114,7 @@ class CarController
         echo json_encode($carList);
     }
 
-    //display a movie in a form for editing
-    //IGNORE FOR NOW
-    /**
+    //display a car in a form for editing
     public function edit($id) {
         //retrieve the specific movie
         $car = $this->car_model->view_car($id);
@@ -140,9 +130,9 @@ class CarController
         $view->display($car);
     }
 
-    //update a movie in the database
+    //update a car in the database
     public function update($id) {
-        //update the movie
+        //update the car
         $update = $this->car_model->update_car($id);
         if (!$update) {
             //handle errors
@@ -151,13 +141,29 @@ class CarController
             return;
         }
 
-        //display the updateed movie details
+        //display the confirmation screen
         $confirm = "The car was successfully updated.";
-        $car = $this->car_model->view_car($id);
 
-        $view = new CarDetail();
-        $view->display($car, $confirm);
-    }**/
+        $view = new CarUpdate();
+        $view->display($confirm);
+    }
+
+    //delete a car in the database
+    public function delete($id){
+        $delete = $this->car_model->delete_car($id);
+        if (!$delete) {
+            //handle errors
+            $message = "There was a problem deleting the car at='" . $id . "'.";
+            $this->error($message);
+            return;
+        }
+
+        //display the confirmation screen
+        $confirm = "The car was successfully deleted.";
+
+        $view = new CarUpdate();
+        $view->display($confirm);
+    }
 
     public function error($message){
         //create an object of the Error class
