@@ -57,26 +57,18 @@ class CarController
 
             //if search term is empty, throw an error
             if ($query_terms == "") {
-                throw new EmptySearchException("Error: Search cannot be empty");
+                throw new EmptySearchException();
             }
 
             //search the database for matching cars
             $cars = $this->car_model->search_car($query_terms);
 
-            /**if ($cars === 0) {
-                //handle error
-                throw new NoCarsException("Your search yielded no results (There are NO cars!)");
-            }**/
             //display matched movies
             $search = new SearchCar();
             $search->display($query_terms, $cars);
         }
-        catch (NoCarsException $e){
-            $message = $e->getMessage();
-            $this->error($message);
-        }
         catch (EmptySearchException $e){
-            $message = $e->getMessage();
+            $message = $e->getOutput();
             $this->error($message);
         }
 

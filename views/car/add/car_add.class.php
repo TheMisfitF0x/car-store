@@ -20,7 +20,7 @@ class CarAdd extends IndexView
                     <tr>
                         <th class="viewCarsTable">VIN</th>
                         <td class="viewCarsTable" id="link">
-                            <input name="vin" type="text" placeholder="Car Vin" required class="AddCarInput">
+                            <input name="vin" type="text" placeholder="Car Vin" required class="AddCarInput" maxlength="17">
                         </td>
                     </tr>
                     <tr>

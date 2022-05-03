@@ -7,5 +7,7 @@
  */
 class EmptySearchException extends Exception
 {
-
+    public function getOutput(){
+        return "Error: Search cannot be empty";
+    }
 }

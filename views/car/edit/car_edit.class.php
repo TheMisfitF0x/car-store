@@ -15,7 +15,7 @@ class CarEdit extends IndexView
                     <tr>
                         <th class="viewCarsTable">VIN</th>
                         <td class="viewCarsTable" id="link">
-                            <input name="vin" type="text" placeholder="Car Vin" required class="AddCarInput" value="<?=$car->getVin()?>">
+                            <input name="vin" type="text" placeholder="Car Vin" required class="AddCarInput" value="<?=$car->getVin()?>"  maxlength="17">
                         </td>
                     </tr>
                     <tr>
