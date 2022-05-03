@@ -151,41 +151,14 @@ class CarModel
     }
 
     public function update_car($id) {
-        //if the script did not receive post data, display an error message and then terminate the script immediately
         if (!filter_has_var(INPUT_POST, 'vin') ||
             !filter_has_var(INPUT_POST, 'car_name') ||
             !filter_has_var(INPUT_POST, 'model') ||
             !filter_has_var(INPUT_POST, 'brand') ||
             !filter_has_var(INPUT_POST, 'man_year') ||
             !filter_has_var(INPUT_POST, 'mpg') ||
-            !filter_has_var(INPUT_POST, 'color')) {
-
-            return false;
-        }
-
-        //retrieve data for the new car; data is sanitized and escaped for security's sake.
-        $vin = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'vin', FILTER_SANITIZE_STRING)));
-        $name = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'car_name', FILTER_SANITIZE_STRING)));
-        $model = $this->dbConnection->real_escape_string(filter_input(INPUT_POST, 'model', FILTER_SANITIZE_STRING));
-        $brand = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'brand', FILTER_SANITIZE_STRING)));
-        $manYear = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'man_year', FILTER_SANITIZE_NUMBER_INT)));
-        $mpg = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'mpg', FILTER_SANITIZE_NUMBER_INT)));
-        $color = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'color', FILTER_SANITIZE_STRING)));
-
-
-        //query string for add
-        $sql = "INSERT INTO " . $this->tblCars . " VALUES (NULL, '$vin', '$name', '$model', '$brand', '$manYear','$color', '$mpg', NULL)";
-
-        //execute the query
-        return $this->dbConnection->query($sql);//if the script did not receive post data, display an error message and then terminate the script immediately
-        if (!filter_has_var(INPUT_POST, 'vin') ||
-            !filter_has_var(INPUT_POST, 'car_name') ||
-            !filter_has_var(INPUT_POST, 'model') ||
-            !filter_has_var(INPUT_POST, 'brand') ||
-            !filter_has_var(INPUT_POST, 'man_year') ||
-            !filter_has_var(INPUT_POST, 'mpg') ||
-            !filter_has_var(INPUT_POST, 'color')) {
-
+            !filter_has_var(INPUT_POST, 'color') ||
+            !filter_has_var(INPUT_POST, 'image')){
             return false;
         }
 
@@ -198,11 +171,6 @@ class CarModel
         $mpg = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'mpg', FILTER_SANITIZE_NUMBER_INT)));
         $color = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'color', FILTER_SANITIZE_STRING)));
         $image = $this->dbConnection->real_escape_string(filter_input(INPUT_POST, "image", FILTER_SANITIZE_STRING));
-
-//query string for update
-//        $sql = "UPDATE " . $this->tblCars .
-//            " SET title='$title', rating='$rating', release_date='$release_date', director='$director', "
-//            . "image='$image', description='$description' WHERE id='$id'";
 
         //query string for add
         $sql = "UPDATE " . $this->tblCars . " SET Vin='$vin', CarName='$name', Model='$model', Brand='$brand', ManYear='$manYear', Color='$color', MPG='$mpg', Image='$image' WHERE CarID='$id'";
