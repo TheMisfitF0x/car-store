@@ -97,29 +97,33 @@ class CarController
     }
 
     public function submit(){
-        //Submits the new car from the "add car" form into the database
-        //this should snag the values from POST
-        $submit = $this->car_model->submit_car();
+        try {
+            //Submits the new car from the "add car" form into the database
+            //this should snag the values from POST
+            $submit = $this->car_model->submit_car();
 
-        if (!$submit) {
-            //handle errors
-            $message = "There was a problem submitting the new car=";
-            $this->error($message);
-            return;
+            if (!$submit) {
+                //handle errors
+                throw new CarSubmitException();
+            }
+
+            //displays confirmation page
+            $view = new CarSubmit();
+            $view->display();
         }
-
-        //displays confirmation page
-        $view = new CarSubmit();
-        $view->display();
+        catch (CarSubmitException $e){
+            $message = $e->getOutput();
+            $this->error($message);
+        }
     }
 
-    //autosuggestion
+    //Autosuggestion
     public function suggest($terms) {
         //retrieve query terms
         $query_terms = urldecode(trim($terms));
         $cars = $this->car_model->search_car($query_terms);
 
-        //retrieve all movie titles and store them in an array
+        //retrieve all cars and store them in an array
         $carList = array();
         if ($cars) {
             foreach ($cars as $car) {
@@ -132,53 +136,66 @@ class CarController
 
     //display a car in a form for editing
     public function edit($id) {
-        //retrieve the specific movie
-        $car = $this->car_model->view_car($id);
+        try {
+            //retrieve the specific movie
+            $car = $this->car_model->view_car($id);
 
-        if (!$car) {
-            //display an error
-            $message = "There was a problem displaying the car id='" . $id . "'.";
-            $this->error($message);
-            return;
+            if (!$car) {
+                //display an error
+                throw new CarDetailException();
+            }
+
+            $view = new CarEdit();
+            $view->display($car);
         }
 
-        $view = new CarEdit();
-        $view->display($car);
+        catch (CarDetailException $e){
+            $message = $e->getOutput($id);
+            $this->error($message);
+        }
+
     }
 
     //update a car in the database
     public function update($id) {
-        //update the car
-        $update = $this->car_model->update_car($id);
-        if (!$update) {
-            //handle errors
-            $message = "There was a problem updating the car id='" . $id . "'.";
-            $this->error($message);
-            return;
+        try {
+            //update the car
+            $update = $this->car_model->update_car($id);
+            if (!$update) {
+                throw new CarUpdateException();
+            }
+
+            //display the confirmation screen
+            $confirm = "The car was successfully updated.";
+
+            $view = new CarUpdate();
+            $view->display($confirm);
         }
-
-        //display the confirmation screen
-        $confirm = "The car was successfully updated.";
-
-        $view = new CarUpdate();
-        $view->display($confirm);
+        catch (CarUpdateException $e){
+            $message = $e->getOutput($id);
+            $this->error($message);
+        }
     }
 
     //delete a car in the database
     public function delete($id){
-        $delete = $this->car_model->delete_car($id);
-        if (!$delete) {
-            //handle errors
-            $message = "There was a problem deleting the car at='" . $id . "'.";
-            $this->error($message);
-            return;
+        try {
+            $delete = $this->car_model->delete_car($id);
+            if (!$delete) {
+                //handle errors
+                throw new CarDeleteException();
+            }
+
+            //display the confirmation screen
+            $confirm = "The car was successfully deleted.";
+
+            $view = new CarUpdate();
+            $view->display($confirm);
         }
-
-        //display the confirmation screen
-        $confirm = "The car was successfully deleted.";
-
-        $view = new CarUpdate();
-        $view->display($confirm);
+        catch (CarDeleteException $e){
+            $message = $e->getOutput($id);
+            $this->error($message);
+        }
     }
 
     public function error($message){
