@@ -180,6 +180,14 @@ class CarModel
 
     }
 
+    public function delete_car($id)
+    {
+        $sql = "DELETE FROM $this->tblCars WHERE CarID=$id";
+        $this->dbConnection->query($sql);
+
+
+    }
+
     public function submit_car() {
         //if the script did not receive post data, display an error message and then terminate the script immediately
         if (!filter_has_var(INPUT_POST, 'vin') ||
