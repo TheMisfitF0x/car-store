@@ -59,6 +59,12 @@ class CarController
         }
     }
 
+    //Loads the about page
+    public function about() {
+        $view = new AboutIndex();
+        $view->display();
+    }
+
     //Searches cars from the database
     public function search() {
         try {

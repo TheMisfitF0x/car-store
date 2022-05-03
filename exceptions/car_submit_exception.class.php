@@ -2,5 +2,5 @@
 
 class CarSubmitException extends Exception
 {
-    
+
 }
