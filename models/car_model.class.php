@@ -157,8 +157,7 @@ class CarModel
             !filter_has_var(INPUT_POST, 'brand') ||
             !filter_has_var(INPUT_POST, 'man_year') ||
             !filter_has_var(INPUT_POST, 'mpg') ||
-            !filter_has_var(INPUT_POST, 'color') ||
-            !filter_has_var(INPUT_POST, 'image')){
+            !filter_has_var(INPUT_POST, 'color')){
             return false;
         }
 
@@ -173,7 +172,7 @@ class CarModel
         $image = $this->dbConnection->real_escape_string(filter_input(INPUT_POST, "image", FILTER_SANITIZE_STRING));
 
         //query string for add
-        $sql = "UPDATE " . $this->tblCars . " SET Vin='$vin', CarName='$name', Model='$model', Brand='$brand', ManYear='$manYear', Color='$color', MPG='$mpg', Image='$image' WHERE CarID='$id'";
+        $sql = "UPDATE " . $this->tblCars . " SET Vin='$vin', CarName='$name', Model='$model', Brand='$brand', ManYear='$manYear', Color='$color', MPG='$mpg' WHERE CarID='$id'";
 
         //execute the query
         return $this->dbConnection->query($sql);
