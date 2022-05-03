@@ -43,6 +43,7 @@ class CarDetail extends IndexView
             </tr>
         </table>
             <a href="<?=$base_url?>/index.php/car/edit/<?=$car->getCarId()?>">Edit</a>
+            <a href="<?=$base_url?>/index.php/car/delete/<?=$car->getCarId()?>">Delete</a>
         </div>
         <?php
        self::displayFooter();

@@ -183,7 +183,7 @@ class CarModel
     public function delete_car($id)
     {
         $sql = "DELETE FROM $this->tblCars WHERE CarID=$id";
-        $this->dbConnection->query($sql);
+        return $this->dbConnection->query($sql);
 
 
     }

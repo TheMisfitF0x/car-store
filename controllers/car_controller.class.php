@@ -149,12 +149,28 @@ class CarController
             return;
         }
 
-        //display the updated car details
+        //display the confirmation screen
         $confirm = "The car was successfully updated.";
-        $car = $this->car_model->view_car($id);
 
-        $view = new CarDetail();
-        $view->display($car);
+        $view = new CarUpdate();
+        $view->display($confirm);
+    }
+
+    //delete a car in the database
+    public function delete($id){
+        $delete = $this->car_model->delete_car($id);
+        if (!$delete) {
+            //handle errors
+            $message = "There was a problem deleting the car at='" . $id . "'.";
+            $this->error($message);
+            return;
+        }
+
+        //display the confirmation screen
+        $confirm = "The car was successfully deleted.";
+
+        $view = new CarUpdate();
+        $view->display($confirm);
     }
 
     public function error($message){
