@@ -10,7 +10,7 @@ class CarEdit extends IndexView
             <h2 class="ListTitle" id="TitleText">Edit Car</h2>
         </div>
         <div class="viewCarsTable" id="CarViewBorder">
-            <form method="post" action="<?=$base_url?>/index.php/car/update" id="UpdateCar">
+            <form method="post" action="<?=$base_url?>/index.php/car/update/<?=$car->getCarId()?>" id="UpdateCar">
                 <table>
                     <tr>
                         <th class="viewCarsTable">VIN</th>
