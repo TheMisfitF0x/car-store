@@ -35,14 +35,14 @@ class UserController
 
         try{
             if (!$sign) {
-                throw new InvalidLoginException("Error: Invalid username or password");
+                throw new InvalidLoginException();
             }
             $view = new Sign();
             $view->display();
         }
 
         catch(InvalidLoginException $e){
-            $message = $e->getMessage();
+            $message = $e->getOutput();
             $this->error($message);
         }
 
