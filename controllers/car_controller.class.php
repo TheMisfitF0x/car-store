@@ -31,7 +31,7 @@ class CarController
             $view = new CarIndex();
             $view->display($cars);
         }
-        
+
         catch (CarIndexException $e){
             $message = $e->getOutput();
             $this->error($message);
@@ -39,19 +39,24 @@ class CarController
     }
 
     public function detail($id){
-        //retrieve the specific car
-        $car = $this->car_model->view_car($id);
+        try {
+            //retrieve the specific car
+            $car = $this->car_model->view_car($id);
 
-        if (!$car) {
-            //display an error
-            $message = "There was a problem displaying the id='" . $id . "'.";
-            $this->error($message);
-            return;
+            if (!$car) {
+                //display an error
+                throw new CarDetailException();
+            }
+
+            //display movie details
+            $view = new CarDetail();
+            $view->display($car);
         }
 
-        //display movie details
-        $view = new CarDetail();
-        $view->display($car);
+        catch (CarDetailException $e){
+            $message = $e->getOutput($id);
+            $this->error($message);
+        }
     }
 
     //Searches cars from the database
