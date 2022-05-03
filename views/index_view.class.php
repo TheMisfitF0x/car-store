@@ -68,7 +68,7 @@ class IndexView {
                             }
                         ?>
 
-                     <th class="NavBar">About</th>
+                        <th class="NavBar"><a href="<?= BASE_URL?>/index.php/about/index">About</a></th>
                         <div class="searchbar">
                             <form method="get" action="<?=BASE_URL?>/index.php/car/search">
                         <td>
