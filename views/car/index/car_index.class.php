@@ -20,6 +20,7 @@ class CarIndex extends IndexView
             </div>
         </div>
         <div class="viewCarsTable" id="CarViewBorder">
+            <div class="viewCarsTable" id="flex">
         <table class="viewCarsTable">
             <tr>
                 <th class="viewCarsTable">Car Name</th>
@@ -55,6 +56,7 @@ class CarIndex extends IndexView
                     ?><a href="<?=$base_url?>/index.php/car/add"><button class="AddCar" id="AddCarButton">Add Car to DataBase</button></a><?php
                 }
             ?>
+        </div>
         </div>
 
 

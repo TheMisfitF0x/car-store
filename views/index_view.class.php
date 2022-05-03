@@ -44,43 +44,46 @@ class IndexView {
 
         <!--This is the header for every page-->
         <div class="header">
-            <img style="float: right;"  src="<?= BASE_URL ?>/www/img/ran.png" alt="ran's picture">
             <div class="LogoBox">
+                <img style="float: right; padding: 5%" src="<?= BASE_URL ?>/www/img/ran.png" alt="ran's picture">
                 <h1>&nbsp&nbsp&nbsp Ran's</h1>
                 <h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Racin</h1>
                 <h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Racer's</h1>
+
             </div>
         </div>
         <hr class="hr">
         <!--This is the Navigation Tab -->
-        <div class="NavBar">
-            <table>
-                <tr>
-                    <th class="NavBar"><a href="<?= BASE_URL ?>/index.php/welcome/index/">Home</a></th>
-                    <th class="NavBar"><a href="<?= BASE_URL?>/index.php/car/index/">Cars </a></th>
-                    <?php
-                        if ($login==null){
-                            ?><th class="NavBar"><a href="<?= BASE_URL?>/index.php/user/login/">Login</th><?php
-                        }else{
-                            ?><th class="NavBar"><a href="<?= BASE_URL?>/index.php/user/logout/">Logout</th><?php
-                        }
-                    ?>
+        <div class="NavBar" id="flex">
+            <div class="NavBar" id="style" >
+                <table class="NavBar">
+                    <tr>
+                        <th class="NavBar"><a href="<?= BASE_URL ?>/index.php/welcome/index/">Home</a></th>
+                        <th class="NavBar"><a href="<?= BASE_URL?>/index.php/car/index/">Cars </a></th>
+                        <?php
+                            if ($login==null){
+                             ?><th class="NavBar"><a href="<?= BASE_URL?>/index.php/user/login/">Login</th><?php
+                            }else{
+                                ?><th class="NavBar"><a href="<?= BASE_URL?>/index.php/user/logout/">Logout</th><?php
+                            }
+                        ?>
 
-                    <th class="NavBar">About</th>
-                    <div class="searchbar">
-                        <form method="get" action="<?=BASE_URL?>/index.php/car/search">
-                    <td>
-                        <input name="query-terms" id="searchtextbox" placeholder="Search Cars by Name" autocomplete="off" onkeyup="handleKeyUp(event)">
-                        <div id="suggestionDiv";></div>
-                    </td>
-                            <td>
-                                <input type="submit" value="Search" class="GoButton" id="GoButtonStyle">
-                            </td>
-                        </form>
-                    </div>
-                </tr>
+                     <th class="NavBar">About</th>
+                        <div class="searchbar">
+                            <form method="get" action="<?=BASE_URL?>/index.php/car/search">
+                        <td>
+                            <input name="query-terms" id="searchtextbox" placeholder="Search Cars by Name" autocomplete="off" onkeyup="handleKeyUp(event)">
+                            <div id="suggestionDiv";></div>
+                        </td>
+                                <td>
+                                    <input type="submit" value="Search" class="GoButton" id="GoButtonStyle">
+                                </td>
+                            </form>
+                        </div>
+                    </tr>
 
-            </table>
+                </table>
+            </div>
         </div>
         <hr class="hr">
 

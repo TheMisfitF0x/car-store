@@ -63,9 +63,8 @@ div.footer#FooterText{
 
     border: black solid 5px;
     border-radius:75px;
-    margin-left: 500px ;
-    margin-right: 500px;
-    margin-top: 25px;
+    margin: auto;
+    width: 50%;
     background-color: white;
     font-family: fantasy;
     background-color: var(--checker-color-2);
@@ -74,7 +73,11 @@ div.footer#FooterText{
     background-size: calc(var(--checker-size) * 2) calc(var(--checker-size) * 2);
 }
 
+image.LogoBox#HeaderImage{
+    float: right;
+    width: 200px;
 
+}
 
 :root {
     --checker-color-1: orange;
@@ -89,12 +92,17 @@ div.footer#FooterText{
     background-color: white;
     border: black solid 5px;
     border-radius:75px;
-    width: 200px;
-    margin-left: 10px;
+    width: 400px;
+    margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
+
+
 }
 
+.LogoImage{
+
+}
 /*Actual search bar*/
 
 .searchbar {
@@ -106,13 +114,16 @@ div.footer#FooterText{
 }
 /*This where the links to other pages*/
 
-.NavBar{
+.NavBar#style{
+    display: flex;
+    justify-content: space-between;
+    float: inside;
     text-align: center;
     border: black 5px solid;
     border-radius: 10px;
     border-collapse: collapse;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin: auto;
+    width: 70%;
     padding: 5px;
     background-color: var(--checker-color-2);
     background-image: var(--checker-gradient), var(--checker-gradient);
@@ -122,15 +133,35 @@ div.footer#FooterText{
 
 
 }
+
+
 th.NavBar {
     height: 50px;
     width: 100px;
     border: 3px solid black;
     background-color: #ff826f;
     background-image: none;
-    padding: 5px;
-    margin-right: 5px;
     font-size: 20px;
+    border-radius: 75px;
+    margin: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+
+
+
+
+
+
+}
+
+
+table.NavBar{
+
+    margin: auto;
+    border-collapse: separate;
+
+
+
 
 
 }
@@ -243,8 +274,7 @@ button.AddCar#AddCarButton:hover{
 .viewCarsTable{
     background-color: white;
     text-align: center;
-    margin-right: 20%;
-    margin-left: 20%;
+
     background-color: var(--checker-color-2);
     background-image: var(--checker-gradient), var(--checker-gradient);
     background-position: 0 0, var(--checker-size) var(--checker-size);
@@ -276,10 +306,9 @@ td.viewCarsTable#link{
     border-radius: 5px;
 }
 table.viewCarsTable{
-    padding: 10px;
     border: 2px solid black;
     text-align: center;
-
+    margin: auto;
     background-image: none;
     background-color: darkorange;
 
@@ -295,8 +324,13 @@ th.viewCarsTable{
 
 div.viewCarsTable#CarViewBorder{
     border: black 5px solid;
-    padding: 10px;
+    margin: auto;
+    width: 50%;
 
+
+}
+div.viewCarsTable#flex{
+    justify-content: center;
 }
 
 /*Individual Views */
