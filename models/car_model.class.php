@@ -197,6 +197,7 @@ class CarModel
         $manYear = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'man_year', FILTER_SANITIZE_NUMBER_INT)));
         $mpg = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'mpg', FILTER_SANITIZE_NUMBER_INT)));
         $color = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'color', FILTER_SANITIZE_STRING)));
+        $image = $this->dbConnection->real_escape_string(filter_input(INPUT_POST, "image", FILTER_SANITIZE_STRING));
 
 //query string for update
 //        $sql = "UPDATE " . $this->tblCars .
@@ -204,7 +205,7 @@ class CarModel
 //            . "image='$image', description='$description' WHERE id='$id'";
 
         //query string for add
-        $sql = "UPDATE " . $this->tblCars . " SET Vin='$vin', CarName='$name', Model='$model', Brand='$brand', ManYear='$manYear', Color='$color', MPG='$mpg' WHERE CarID='$id'";
+        $sql = "UPDATE " . $this->tblCars . " SET Vin='$vin', CarName='$name', Model='$model', Brand='$brand', ManYear='$manYear', Color='$color', MPG='$mpg', Image='$image' WHERE CarID='$id'";
 
         //execute the query
         return $this->dbConnection->query($sql);
