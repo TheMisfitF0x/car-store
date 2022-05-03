@@ -7,5 +7,7 @@
  */
 class InvalidLoginException extends Exception
 {
-
+    public function getOutput(){
+        return "Error: Invalid username or password";
+    }
 }
