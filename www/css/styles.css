@@ -333,6 +333,27 @@ div.viewCarsTable#flex{
     justify-content: center;
 }
 
+p.aboutRans{
+    font-size: 20px;
+    text-align: left;
+}
+
+img.aboutRans{
+    width: 50%;
+    height: 50%;
+    border: 5px black solid;
+    border-radius: 10px;
+}
+div.aboutRans{
+    background-color: white;
+    background-image: none;
+    border: black 3px solid;
+    border-radius: 10px ;
+    margin: auto;
+    margin-top: 20px ;
+    margin-bottom: 20px;
+    width: 80%;
+}
 /*Individual Views */
 .CarTable{
 
