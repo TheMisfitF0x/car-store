@@ -122,9 +122,7 @@ class CarController
         echo json_encode($carList);
     }
 
-    //display a movie in a form for editing
-    //IGNORE FOR NOW
-    /**
+    //display a car in a form for editing
     public function edit($id) {
         //retrieve the specific movie
         $car = $this->car_model->view_car($id);
@@ -157,7 +155,7 @@ class CarController
 
         $view = new CarDetail();
         $view->display($car, $confirm);
-    }**/
+    }
 
     public function error($message){
         //create an object of the Error class
