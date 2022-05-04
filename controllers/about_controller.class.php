@@ -1,9 +1,9 @@
 <?php
 /*
- * Author: Logan Douglass
- * Date: April 6, 2022
- * File: welcome_controller.class.php
- * Description: This scripts define the class for the welcome controller; this is the default controller.
+ * Author: Evan Minor
+ * Date: May 3, 2022
+ * File: about_controller.class.php
+ * Description: This scripts define the class for the about controller whose soul purpose is to load the about page.
  *
  */
 

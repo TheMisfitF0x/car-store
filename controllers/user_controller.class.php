@@ -11,7 +11,7 @@ class UserController
 
     //default constructor
     public function __construct() {
-        //create an instance of the MovieModel class
+        //create an instance of the UserModel class
         $this->user_model = UserModel::getUserModel();
     }
 
@@ -35,6 +35,7 @@ class UserController
 
         try{
             if (!$sign) {
+                //throws an error if incorrect login info is put in
                 throw new InvalidLoginException();
             }
             $view = new Sign();
