@@ -124,6 +124,7 @@ image.LogoBox#HeaderImage{
     border-collapse: collapse;
     margin: auto;
     width: 70%;
+    min-width: 500px;
     padding: 5px;
     background-color: var(--checker-color-2);
     background-image: var(--checker-gradient), var(--checker-gradient);
@@ -183,7 +184,23 @@ input.GoButton#GoButtonStyle{
 input.GoButton#GoButtonStyle:hover{
     background-color:#ffdaaa;
 }
+button.GoButton#GoButtonStyle{
+    height: 30px;
+    width: 100px;
+    border: 3px solid black;
+    border-radius: 10px;
+    background-color: #ff826f;
+    background-image: none;
+    padding: 2px;
+    margin-right: 5px;
+    font-size: 14px;
+    font-family: "Comic Sans MS";
+    font-weight: bold;
+}
 
+button.GoButton#GoButtonStyle:hover{
+    background-color:#ffdaaa;
+}
 /*Link styling */
 a{
     outline: none;
@@ -297,13 +314,29 @@ td.viewCarsTable:hover#link{
     border: 1px solid black;
     border-radius: 5px;
     font-weight: bold;
+
+}
+td.viewCarsTable:hover#linkwhite{
+    background-color: #ffdaaa;
+    background-image: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-weight: bold;
+
 }
 
 td.viewCarsTable#link{
     background-image: none;
     background-color: white;
+    border-collapse: collapse;
     border: 1px solid black;
     border-radius: 5px;
+}
+td.viewCarsTable#linkwhite{
+    background-image: none;
+    background-color: white;
+    border-collapse: collapse;
+
 }
 table.viewCarsTable{
     border: 2px solid black;
@@ -311,6 +344,10 @@ table.viewCarsTable{
     margin: auto;
     background-image: none;
     background-color: darkorange;
+
+}
+table.viewCarsTable#addCar{
+    background-color: white;
 
 }
 th.viewCarsTable{
@@ -324,8 +361,11 @@ th.viewCarsTable{
 
 div.viewCarsTable#CarViewBorder{
     border: black 5px solid;
+    border-radius: 10px;
     margin: auto;
     width: 50%;
+    padding-top: 20px;
+    padding-bottom: 20px;
 
 
 }
@@ -436,7 +476,7 @@ table.CarTable{
 
 h2.ListTitle#TitleText{
     text-align: center;
-    border: 2px solid black;
+    border: 5px solid black;
     background-color: white;
     background-image: none;
     margin-top: 20px;

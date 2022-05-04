@@ -16,16 +16,14 @@ class SearchCar extends IndexView
 <div class="ListTitle" id="TitleBorder" xmlns="http://www.w3.org/1999/html">
         <h2 class="ListTitle" id="TitleText">List of Cars Containing <strong>"<?=$terms?>"</strong>:</h2>
     </div>
-    <div class="viewCarsTable" id="CarViewBorder">
-        <table class="viewCarsTable">
-            <tr>
-                <th class="viewCarsTable">Car Name</th>
-                <th class="viewCarsTable">Color</th>
-                <th class="viewCarsTable">MPG</th>
-            </tr>
+
+
         <?php
         if ($cars === 0) {
-            echo "No car was found";
+            echo "
+                        <div>
+                            <h2 class='ListTitle' id='TitleText'>404 No car found..</h2>
+                        </div>";
         } else {
             foreach ($cars as $i => $car) {
                 $id = $car->getCarId();
@@ -33,15 +31,26 @@ class SearchCar extends IndexView
                 $color = $car->getColor();
                 $mpg = $car->getMpg();
 
-                echo "<tr>
+                echo "  
+        <div class='viewCarsTable' id='CarViewBorder'>
+              <table class='viewCarsTable'>
+  
+                        <tr>
+                            <th class='viewCarsTable'>Car Name</th>
+                            <th class='viewCarsTable'>Color</th>
+                            <th class='viewCarsTable'>MPG</th>
+                        </tr>
+                        <tr>
                             <td class='viewCarsTable' id='link' ><a href = '$base_url/index.php/car/detail/$id'>$carName</a></td>
                             <td class='viewCarsTable' id='normal' style='border: 1px solid black;'>$color</td>
                             <td class='viewCarsTable' id='normal'>$mpg</td>
-                        </tr>";
+                        </tr>
+               </table>
+        </div>  
+                        ";
             }
         }?>
-        </table>
-    </div>
+
         <?php
         self::displayFooter();
         ?>

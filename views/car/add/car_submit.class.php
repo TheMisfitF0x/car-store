@@ -11,8 +11,18 @@ class CarSubmit extends IndexView
         $base_url = BASE_URL;
         parent::displayHeader("Confirmation");
         ?>
-        <h2>Success! Car has been added.</h2>
-        <a href="<?=$base_url?>/index.php/car/index"><button>List All Cars</button></a>
+            <div class="ListTitle" id="TitleBorder">
+                <div>
+                    <h2 class="ListTitle" id="TitleText"> Success! Car has been added.</h2>
+                </div>
+            </div>
+        <form method="get" action="<?=$base_url?>/index.php/car/index">
+
+        </form>
+        <p style="text-align: center">
+            <a href="<?=$base_url?>/index.php/car/index"><button class="GoButton" id="GoButtonStyle">List All Cars</button></a>
+        </p>
         <?php
+        parent::displayFooter();
     }
-}
+}?>

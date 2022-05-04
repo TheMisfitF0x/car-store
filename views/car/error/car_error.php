@@ -10,8 +10,13 @@ class CarError extends IndexView
 {
 
     public function display($message){
-        parent::displayHeader("Error");
-        echo $message;
+        parent::displayHeader("Error");?>
+        <div class="ListTitle" id="TitleBorder">
+            <div>
+                <h2 class="ListTitle" id="TitleText"><?= $message?></h2>
+            </div>
+        </div>
+<?php
         parent::displayFooter();
     }
 }?>
