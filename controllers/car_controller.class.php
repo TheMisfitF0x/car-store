@@ -21,13 +21,13 @@ class CarController
             //retrieve all cars and store them in an array
             $cars = $this->car_model->list_car();
 
-
+            //error handling
             if (!$cars) {
                 //display an error
                 throw new CarIndexException();
             }
 
-            // display all movies
+            // display all cars
             $view = new CarIndex();
             $view->display($cars);
         }
@@ -48,7 +48,7 @@ class CarController
                 throw new CarDetailException();
             }
 
-            //display movie details
+            //display car details
             $view = new CarDetail();
             $view->display($car);
         }
@@ -57,12 +57,6 @@ class CarController
             $message = $e->getOutput($id);
             $this->error($message);
         }
-    }
-
-    //Loads the about page
-    public function about() {
-        $view = new AboutIndex();
-        $view->display();
     }
 
     //Searches cars from the database
@@ -79,7 +73,7 @@ class CarController
             //search the database for matching cars
             $cars = $this->car_model->search_car($query_terms);
 
-            //display matched movies
+            //display matched cars
             $search = new SearchCar();
             $search->display($query_terms, $cars);
         }
