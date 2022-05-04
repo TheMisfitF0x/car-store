@@ -52,7 +52,7 @@ class CarIndex extends IndexView
                     $role = $_SESSION['role'];
                 }
                 if ($role==2){
-                    ?><a href="<?=$base_url?>/index.php/car/add"><button class="AddCar" id="AddCarButton">Add Car to DataBase</button></a><?php
+                    ?><a href="<?=$base_url?>/index.php/car/add"><button class="AddCar" id="AddCarButton">Edit Car DataBase</button></a><?php
                 }
             ?>
         </div>
