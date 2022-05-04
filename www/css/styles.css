@@ -261,7 +261,8 @@ img.HomeImage{
 }
 /*For the Add Car Button*/
 button.AddCar#AddCarButton{
-    width:300px;
+    margin: auto;
+    padding: 10px;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -479,10 +480,8 @@ h2.ListTitle#TitleText{
     border: 5px solid black;
     background-color: white;
     background-image: none;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-right: 25%;
-    margin-left: 25%;
+    border-radius: 10px;
+    margin: auto;
     font-family: fantasy;
     font-size: 30px;
     padding-right: 50px;
@@ -496,10 +495,11 @@ div.ListTitle#TitleBorder{
     text-align: center;
     border: 2px solid black;
     border-radius: 10px;
-    margin-top: 50px;
+    width: 50%;
+
+    margin: auto;
+    padding: 2%;
     margin-bottom: 20px;
-    margin-right: 25%;
-    margin-left: 25%;
     background-color: var(--checker-color-2);
     background-image: var(--checker-gradient), var(--checker-gradient);
     background-position: 0 0, var(--checker-size) var(--checker-size);

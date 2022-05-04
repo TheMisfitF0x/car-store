@@ -41,18 +41,32 @@ class CarDetail extends IndexView
                           <td class="CarTable"><?=$car->getMpg()?></td>
 
             </tr>
-        </table>
+
             <?php
             $role = 0;
             if (isset($_SESSION['role'])){
                 $role = $_SESSION['role'];
             }
             if ($role==2){
-                ?><a href="<?=$base_url?>/index.php/car/edit/<?=$car->getCarId()?>">Edit</a>
-                    <a href="<?=$base_url?>/index.php/car/delete/<?=$car->getCarId()?>">Delete</a><?php
+                ?>
+            <tr>
+                <td>
+
+                </td>
+                <td>
+                <!--Space-->
+                </td>
+                <td>
+                    <a href="<?=$base_url?>/index.php/car/edit/<?=$car->getCarId()?>"><button class="AddCar" id="AddCarButton">Edit</button></a>
+                </td>
+                <td>
+                    <a href="<?=$base_url?>/index.php/car/delete/<?=$car->getCarId()?>"><button class="AddCar" id="AddCarButton">Delete</button></a>
+                </td>
+            </tr>
+                        <?php
             }
             ?>
-
+            </table>
         </div>
         <?php
        self::displayFooter();
